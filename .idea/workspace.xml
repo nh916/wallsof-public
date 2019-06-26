@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7bf6b1e-3456-4dce-be56-2e63701ffba4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/wallOf/migrations/0021_auto_20190625_2207.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallOf/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wallOf/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +26,45 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wall/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+            <state relative-caret-position="295">
+              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wallOf/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="35">
+              <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+              <folding>
+                <element signature="e#563#574#0" />
+                <element signature="e#695#716#0" />
+                <element signature="e#767#1126#0" />
+                <element signature="e#784#1081#0" />
+                <element signature="e#825#897#0" />
+                <element signature="e#954#1028#0" />
+                <element signature="e#1159#1262#0" />
+                <element signature="e#1304#2411#0" />
+                <element signature="e#1716#1727#0" />
+                <element signature="e#1848#1869#0" />
+                <element signature="e#1920#2279#0" />
+                <element signature="e#1937#2234#0" />
+                <element signature="e#1978#2050#0" />
+                <element signature="e#2107#2181#0" />
+                <element signature="e#2312#2411#0" />
+                <element signature="e#2451#3556#0" />
+                <element signature="e#2862#2873#0" />
+                <element signature="e#2994#3015#0" />
+                <element signature="e#3066#3425#0" />
+                <element signature="e#3083#3380#0" />
+                <element signature="e#3124#3196#0" />
+                <element signature="e#3253#3327#0" />
+                <element signature="e#3458#3556#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,13 +137,11 @@
         <option value="$PROJECT_DIR$/wallOf/admin.py" />
         <option value="$PROJECT_DIR$/wallOf/forms.py" />
         <option value="$PROJECT_DIR$/templates/wallOf/About.html" />
-        <option value="$PROJECT_DIR$/wallOf/models.py" />
         <option value="$PROJECT_DIR$/templates/home/Robots.txt.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/wallOf/views.py" />
         <option value="$PROJECT_DIR$/home/url.py" />
         <option value="$PROJECT_DIR$/templates/home/Robots.txt" />
-        <option value="$PROJECT_DIR$/wall/settings.py" />
         <option value="$PROJECT_DIR$/templates/home/about.html" />
         <option value="$PROJECT_DIR$/wall/urls.py" />
         <option value="$PROJECT_DIR$/wallOf/url.py" />
@@ -115,6 +149,8 @@
         <option value="$PROJECT_DIR$/templates/wallOf/advice.html" />
         <option value="$PROJECT_DIR$/templates/Base_All.html" />
         <option value="$PROJECT_DIR$/templates/wallOf/index.html" />
+        <option value="$PROJECT_DIR$/wall/settings.py" />
+        <option value="$PROJECT_DIR$/wallOf/models.py" />
       </list>
     </option>
   </component>
@@ -139,7 +175,7 @@
             <path>
               <item name="wall" type="b2602c69:ProjectViewProjectNode" />
               <item name="wall" type="462c0819:PsiDirectoryNode" />
-              <item name="wall" type="462c0819:PsiDirectoryNode" />
+              <item name="wallOf" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -313,12 +349,36 @@
       <workItem from="1561443174895" duration="101000" />
       <workItem from="1561455045592" duration="320000" />
       <workItem from="1561456951421" duration="237000" />
-      <workItem from="1561513443327" duration="7073000" />
+      <workItem from="1561513443327" duration="8341000" />
     </task>
+    <task id="LOCAL-00001" summary="updated requirements.txt">
+      <created>1561524574528</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561524574528</updated>
+    </task>
+    <task id="LOCAL-00002" summary="before changing modelPosts to modelfrusteration">
+      <created>1561525448801</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561525448801</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200389000" />
+    <option name="totallyTimeSpent" value="201657000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -332,13 +392,13 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.52402234" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32960895" />
-      <window_info anchor="bottom" id="manage.py@wall" order="9" sideWeight="0.4994664" weight="0.65698326" />
+      <window_info active="true" anchor="bottom" id="manage.py@wall" order="9" sideWeight="0.4994664" visible="true" weight="0.65698326" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50160086" side_tool="true" weight="0.5731844" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49839914" visible="true" weight="0.5731844" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49839914" weight="0.5731844" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -399,6 +459,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated requirements.txt" />
+    <MESSAGE value="before changing modelPosts to modelfrusteration" />
+    <option name="LAST_COMMIT_MESSAGE" value="before changing modelPosts to modelfrusteration" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/importlib/__init__.py">
@@ -636,33 +701,6 @@
     <entry file="file://$PROJECT_DIR$/templates/static/wall headers/the wall of wisdom.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/wallOf/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#147#1262#0" />
-            <element signature="e#563#574#0" />
-            <element signature="e#695#716#0" />
-            <element signature="e#767#1126#0" />
-            <element signature="e#784#1081#0" />
-            <element signature="e#825#897#0" />
-            <element signature="e#954#1028#0" />
-            <element signature="e#1159#1262#0" />
-            <element signature="e#1304#2411#0" />
-            <element signature="e#1716#1727#0" />
-            <element signature="e#1848#1869#0" />
-            <element signature="e#1920#2279#0" />
-            <element signature="e#1937#2234#0" />
-            <element signature="e#1978#2050#0" />
-            <element signature="e#2107#2181#0" />
-            <element signature="e#2312#2411#0" />
-            <element signature="e#2451#3556#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/wallOf/advice.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
@@ -694,10 +732,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/wall/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        <state relative-caret-position="295">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wallOf/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+          <folding>
+            <element signature="e#563#574#0" />
+            <element signature="e#695#716#0" />
+            <element signature="e#767#1126#0" />
+            <element signature="e#784#1081#0" />
+            <element signature="e#825#897#0" />
+            <element signature="e#954#1028#0" />
+            <element signature="e#1159#1262#0" />
+            <element signature="e#1304#2411#0" />
+            <element signature="e#1716#1727#0" />
+            <element signature="e#1848#1869#0" />
+            <element signature="e#1920#2279#0" />
+            <element signature="e#1937#2234#0" />
+            <element signature="e#1978#2050#0" />
+            <element signature="e#2107#2181#0" />
+            <element signature="e#2312#2411#0" />
+            <element signature="e#2451#3556#0" />
+            <element signature="e#2862#2873#0" />
+            <element signature="e#2994#3015#0" />
+            <element signature="e#3066#3425#0" />
+            <element signature="e#3083#3380#0" />
+            <element signature="e#3124#3196#0" />
+            <element signature="e#3253#3327#0" />
+            <element signature="e#3458#3556#0" />
+          </folding>
         </state>
       </provider>
     </entry>
