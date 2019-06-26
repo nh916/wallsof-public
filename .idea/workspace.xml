@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7bf6b1e-3456-4dce-be56-2e63701ffba4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,17 +14,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,11 +117,6 @@
             <path>
               <item name="wall" type="b2602c69:ProjectViewProjectNode" />
               <item name="wall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wall" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,7 +292,7 @@
       <workItem from="1561455045592" duration="320000" />
       <workItem from="1561456951421" duration="237000" />
       <workItem from="1561513443327" duration="11992000" />
-      <workItem from="1561534721975" duration="503000" />
+      <workItem from="1561534721975" duration="1625000" />
     </task>
     <task id="LOCAL-00001" summary="updated requirements.txt">
       <created>1561524574528</created>
@@ -331,11 +315,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561525860478</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="git ignore">
+      <created>1561535442292</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561535442292</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205811000" />
+    <option name="totallyTimeSpent" value="206933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,9 +339,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19423692" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19423692" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" weight="0.16542156" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -365,7 +355,7 @@
       <window_info active="true" anchor="bottom" id="manage.py@wall" order="9" sideWeight="0.4994664" weight="0.65698326" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50160086" side_tool="true" weight="0.5731844" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49839914" weight="0.5731844" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49839914" visible="true" weight="0.5731844" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -445,7 +435,8 @@
     <MESSAGE value="updated requirements.txt" />
     <MESSAGE value="before changing modelPosts to modelfrusteration" />
     <MESSAGE value="happy with it" />
-    <option name="LAST_COMMIT_MESSAGE" value="happy with it" />
+    <MESSAGE value="git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/importlib/__init__.py">
@@ -762,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="245">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
