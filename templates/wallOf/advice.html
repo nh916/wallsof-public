@@ -1,0 +1,56 @@
+{% extends 'Base_All.html' %}
+{% load static %}
+
+{% block title %}Wall Of Wisdom {% endblock %}
+
+
+{% block extra_head_at_end %}
+{% endblock %}
+
+{% block style %}
+    <style>
+        textarea {
+            background-color: #a000a0;
+        }
+    </style>
+{% endblock %}
+
+
+
+
+
+
+{% block logo %}
+    <a href="{% url 'advice' %}">
+        <img src="{% static  'wall headers/Wall Of Wisdom.png' %}" class="img-fluid" id="title_it" alt="website logo"
+             style="max-height: 3rem;" title="wisdom on these youngings!">
+    </a>
+    <br>
+    <br>
+
+{% endblock %}
+
+
+
+
+{% block postings %} {{ posts.advice }} {% endblock %}
+
+{% block if_block %}
+    {% if posts.vote >= 50 %}
+        <img src="{% static 'pictures/give him a cookie.png' %}" alt="uuughhhhhh"
+             style="position: relative; float: right; max-width: 22%; max-height: 20rem; margin-left: 1rem;"
+             class="img-fluid">
+    {% endif %}
+{% endblock %}
+
+
+{% block card_color %} bg-primary {% endblock %}
+
+{#{% block extra_post_style %} background-color:#C31FE8; {% endblock %}#}
+
+{% block animate %} zoomIn {% endblock %}
+{#{% block animate %} fadeInDown {% endblock %}#}
+
+{% block body %}
+
+{% endblock %}

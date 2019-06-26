@@ -1,0 +1,313 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}Wall Of Frustration {% endblock %}
+
+{% block extra_head_at_end %}
+
+{% endblock %}
+
+
+{% block style %}
+    <style>
+        {% comment %}        body{
+                    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQByf_x1jOhHRrRfoZ2me4PiVnmsdwH3u4ZVCtRWSDUluMAjONX");
+                }{% endcomment %}
+        @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
+
+
+        #id_title {
+            margin-left: 3.5rem;
+        }
+
+        .input_here {
+            margin-left: 0.5rem;
+        }
+
+        #title_it {
+            font-family: 'Londrina Solid', 'Luckiest Guy', cursive;
+        }
+
+        textarea {
+        {#border-radius: 0.5rem;#} background-color: #3C8FC2;
+            color: white;
+        {#font-weight: bold;#} font-size: medium;
+        }
+
+        ::-webkit-input-placeholder {
+            color: white;
+        }
+
+        ::-moz-placeholder {
+            color: white;
+        }
+
+        {% comment %}        ::-ms-placeholder {
+                    color: white;
+                }{% endcomment %}
+
+        ::placeholder {
+            color: lightgray;
+        }
+
+        label {
+            font-style: italic;
+            font-weight: bold;
+        }
+
+
+        .success_it {
+            -webkit-animation: seconds 1.0s forwards;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-delay: 5s;
+            animation: seconds 1.0s forwards;
+            animation-iteration-count: 1;
+            animation-delay: 3s;
+            position: relative;
+
+        }
+
+        @-webkit-keyframes seconds {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                left: -9999px;
+                position: absolute;
+            }
+        }
+
+        @keyframes seconds {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                left: -9999px;
+                position: absolute;
+            }
+        }
+
+        #id_title {
+            margin-left: 6%;
+        }
+
+        #id_frustration {
+            margin-left: 1%;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    {% if messages %}
+        <div class="alert-success success_it">
+            {% for message in messages %}
+
+                {#            p-3 mb-2 bg-success text-white#}
+
+                <p{% if message.tags %} class="{{ message.tags }}"
+
+                {% endif %}>
+                    {{ message }}
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    {#<h1 class="wow lightSpeedIn" id="title_it">Wall of Frustrations</h1>#}
+
+
+    <div style="width: 80%">
+        <a href="{% url 'frustrations' %}">
+            <img src="{% static  'wall headers/wall-of-header png.png' %}" class="img-fluid" id="title_it"
+                 alt="website logo"
+                 style="max-height: 6rem;" title="UGGHHHHHHH!!!!!!!!!!!!">
+        </a>
+
+        {#            <a href="{% url 'frustrations' %}">#}
+        {#            <img src="{% static  'wall headers/the wall of frustrations.png' %}" class="img-fluid" id="title_it"#}
+        {#                 alt="website logo"#}
+        {#                 style="max-height: 3.5rem;" title="UGGHHHHHHH!!!!!!!!!!!!">#}
+        {#        </a>#}
+        {#        <br>#}
+        {#        <br>#}
+    </div>
+
+    <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
+        <div class="row">
+
+            <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <form method="post" action="" name="posting" style="width: 80%" class="">
+
+                    {% csrf_token %}
+                    {{ postF.as_p }}
+                    <input type="submit" hidden name="posted" value="this_post">
+                    <button type="submit" class="btn btn-primary" onsubmit="" style="size: 20rem">save</button>
+                    <br>
+                    <br>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    {% for posts in all %}
+
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="padding: 1.5rem;">
+
+
+                    {% if posts.vote >= 50 %}
+                        <img src="{% static 'pictures/why you no.png' %}" alt="why you no.."
+                             style="position: relative;float: left; max-width: 20%; margin-right: 2rem" class="">
+
+                    {% endif %}
+
+                    {% if posts.vote >= 100 %}
+                        <img src="{% static 'pictures/uggghhhh.webp' %}" alt="uuughhhhhh"
+                             style="position: relative; float: right; max-width: 20%; max-height: 20rem; margin-left: 1rem;"
+                             class="img-fluid">
+                    {% endif %}
+
+
+                    {% comment %}                    {% if posts.vote <= -50 %}
+                        <img src="{% static 'pictures/tenor.gif' %}" alt="that's nothing"
+                             style="position: relative;float: right; max-width: 20%; max-height: 20rem; margin-left: 1rem;"
+                             class="wow slideInRight">
+                    {% endif %}{% endcomment %}
+
+
+                    <div class="card text-white bg-danger mb-3 wow fadeInRight" style="max-width: 60rem">
+                        <div class="card-body" style="">
+
+                            {% if posts.title == None %}
+
+                            {% else %}
+                                <bold>
+                                <span class="card-title"
+                                      style="font-size: 2vw; font-weight: bolder">{{ posts.title }}</span>
+                                </bold>
+                            {% endif %}
+
+                            <p class="card-text" style="font-size: 1.5vw; ">{{ posts.frustration }}</p>
+                            <span style="font-size: 0.6vw">{{ posts.date_and_time }}</span>
+
+
+                            <p id="{{ posts.salted_pk }}">{{ posts.vote }}</p>
+
+
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                {% csrf_token %}
+                                <div class="btn btn-primary">
+                                    <button id="{{ posts.salted_pk }}" type="submit" title="up vote" name="up_voted_It"
+                                            value={{ posts.salted_pk }} class="" style="size: 9rem"
+                                            onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-up"></i>
+                                    </button>
+                                </div>
+
+
+                                <div class="btn btn-dark">
+                                    <button type="submit" name="down_voted_It" title="down vote"
+                                            value={{ posts.salted_pk }} class=""
+                                            onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+    {% endfor %}
+
+
+
+
+    <br>
+
+
+    <script>
+
+
+        function vote_here(name, value) {
+            const url_of_this_page = window.location.href;
+            let data = {
+                Name: name,
+                Value: value
+            };
+            $(document).ready(function () {
+                $.ajax({
+                    type: "POST",
+                    url: url_of_this_page,
+                    dataType: 'json',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrftoken,
+                    },
+                    data: JSON.stringify(data),
+
+                    success: function () {
+                        console.log("OH YEAH!")
+                    },
+                    error: {
+                        function() {
+                            console.log("400 bad request");
+                        },
+                    },
+                });
+
+            });
+
+            let current_number = parseInt(document.getElementById(value).innerText);
+
+            if (name === 'up_voted_It') {
+                current_number = current_number + 1;
+                document.getElementById(value).innerHTML = (current_number);
+            } else if (name === 'down_voted_It') {
+                current_number = current_number - 1;
+                document.getElementById(value).innerHTML = (current_number);
+            } else {
+
+            }
+        }
+
+
+        // using jQuery
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+
+        var csrftoken = getCookie('csrftoken');
+
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+{% endblock %}

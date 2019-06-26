@@ -1,0 +1,32 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %} The Walls Of ... {% endblock %}
+
+{% block extra_head_at_end %}
+
+{% endblock %}
+
+{#currently hover is not working#}
+{% block style %}
+    <style>
+
+        {% comment %}    body{
+                background-color: red;
+            }{% endcomment %}
+
+        a:hover {
+            background-color: red;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'frustrations' %}" style="left: 10%; top: 45%;" title="Wall of frustrations">
+        <img src="{% static  'logo/wall-of-header.png' %}" class="img-fluid" id="title_it" alt="website logo"
+             style="max-height: 5rem; left: 10%; top: 45%; position: absolute" title="UGGHHHHHHH!!!!!!!!!!!!">
+    </a>
+
+{% endblock %}
+
