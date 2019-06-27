@@ -176,6 +176,109 @@
             padding: 0;
             margin: 0;
         }
+
+
+        /*base px == 16*/
+
+        @media (min-width:20em) {
+
+            /*320px*/
+            /* smartphones, iPhone, portrait 480x320 phones */
+            .date-it {
+                font-size: 1vw;
+            }
+
+            .posting {
+                font-size: 0.1vw;
+            }
+
+            .title-it {
+                font-size: 1.5vw;
+            }
+
+        }
+
+        /*481px*/
+        @media (min-width:30em) {
+
+            /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+            .posting {
+                font-size: 4vw;
+            }
+
+            .date-it {
+                font-size: 2vw;
+            }
+
+            .title-it {
+                font-size: 5vw;
+            }
+        }
+
+        @media (min-width:40em) {
+
+            /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+            .posting {
+                font-size: 3vw;
+            }
+
+            .date-it {
+                font-size: 1.5vw;
+            }
+
+            .title-it {
+                font-size: 4vw;
+            }
+        }
+
+        @media (min-width:60em) {
+
+            /* tablet, landscape iPad, lo-res laptops ands desktops */
+            .posting {
+                font-size: 3vw;
+            }
+
+            .date-it {
+                font-size: 1vw;
+            }
+
+            .title-it {
+                font-size: 3.6vw;
+            }
+        }
+
+        @media (min-width:64em) {
+            /* big landscape tablets, laptops, and desktops */
+
+            .posting {
+                font-size: 2.5vw;
+            }
+
+            .date-it {
+                font-size: 1.vw;
+            }
+
+            .title-it {
+                font-size: 3vw;
+            }
+
+        }
+
+        @media (min-width:80em) {
+
+            /* hi-res laptops and desktops */
+            .posting {
+                font-size: 2vw;
+            }
+
+            .date-it {
+                font-size: 1vw;
+            }
+
+            .title-it {
+                font-size: 2.5vw;
+            }
+        }
     </style>
 
     {% block style %}
@@ -220,7 +323,7 @@
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
     <div class="row">
 
-        <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8">
             <form method="post" action="" name="posting" style="width: 80%" class="">
 
                 {% csrf_token %}
@@ -263,13 +366,13 @@
 
                         {% else %}
                             <bold>
-                                <span class="card-title"
-                                      style="font-size: 2vw; font-weight: bolder">{{ posts.title }}</span>
+                                <span class="card-title title-it"
+                                      style="font-weight: bolder">{{ posts.title }}</span>
                             </bold>
                         {% endif %}
 
-                        <p class="card-text" style="font-size: 1.5vw; ">{% block postings %} {% endblock %}</p>
-                        <span style="font-size: 0.6vw">{{ posts.date_and_time }}</span>
+                        <p class="card-text posting">{% block postings %} {% endblock %}</p>
+                        <span class="date-it">{{ posts.date_and_time }}</span>
 
 
                         <p id="{{ posts.salted_pk }}">{{ posts.vote }}</p>
@@ -278,7 +381,7 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
 
                             {% csrf_token %}
-                            <div class="btn btn-primary">
+                            <div class="btn {% block up_btn_color %} btn-primary {% endblock %}">
                                 <button id="{{ posts.salted_pk }}" type="submit" title="up vote" name="up_voted_It"
                                         value={{ posts.salted_pk }} class="" style="size: 9rem"
                                         onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-up"></i>
@@ -286,7 +389,7 @@
                             </div>
 
 
-                            <div class="btn btn-dark">
+                            <div class="btn {% block down_btn_color %} btn-dark {% endblock %}">
                                 <button type="submit" name="down_voted_It" title="down vote"
                                         value={{ posts.salted_pk }} class=""
                                         onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-down"></i>
