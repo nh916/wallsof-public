@@ -8,8 +8,8 @@ class ModelPosts(models.Model):
     title = models.CharField(default="", blank=True, max_length=100, null=True)
     frustration = models.TextField(blank=False, max_length=240)
     date_and_time = models.DateTimeField(auto_now_add=True)
-    only_date = models.DateField(auto_now_add=True, null=True)
-    up_vote = models.PositiveIntegerField(default=0, blank=True, null=False)
+    only_date = models.DateField(auto_now_add=True)
+    up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
 
     # @property
@@ -47,8 +47,8 @@ class ModelSecretes(models.Model):
     title = models.CharField(default="", blank=True, max_length=100, null=True)
     secrete = models.TextField(blank=False, max_length=240)
     date_and_time = models.DateTimeField(auto_now_add=True)
-    only_date = models.DateField(auto_now_add=True, null=True)
-    up_vote = models.PositiveIntegerField(default=0, blank=True, null=False)
+    only_date = models.DateField(auto_now_add=True)
+    up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
 
     # @property
@@ -86,8 +86,8 @@ class ModelAdvice(models.Model):
     title = models.CharField(default="", blank=True, max_length=100, null=True)
     advice = models.TextField(blank=False, max_length=240)
     date_and_time = models.DateTimeField(auto_now_add=True)
-    only_date = models.DateField(auto_now_add=True, null=True)
-    up_vote = models.PositiveIntegerField(default=0, blank=True, null=False)
+    only_date = models.DateField(auto_now_add=True)
+    up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
 
     # @property
