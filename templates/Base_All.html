@@ -178,6 +178,8 @@
         }
 
 
+
+
         /*base px == 16*/
 
         @media (min-width: 20em) {
@@ -196,6 +198,7 @@
                 font-size: 1.5vw;
             }
 
+
         }
 
         /*481px*/
@@ -203,7 +206,7 @@
 
             /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
             .posting {
-                font-size: 4vw;
+                font-size: 3vw;
             }
 
             .date-it {
@@ -211,7 +214,7 @@
             }
 
             .title-it {
-                font-size: 5vw;
+                font-size: 4vw;
             }
         }
 
@@ -227,45 +230,13 @@
             }
 
             .title-it {
-                font-size: 4vw;
+                font-size: 3.5vw;
             }
         }
 
         @media (min-width: 60em) {
 
             /* tablet, landscape iPad, lo-res laptops ands desktops */
-            .posting {
-                font-size: 3vw;
-            }
-
-            .date-it {
-                font-size: 1vw;
-            }
-
-            .title-it {
-                font-size: 3.6vw;
-            }
-        }
-
-        @media (min-width: 64em) {
-            /* big landscape tablets, laptops, and desktops */
-            .posting {
-                font-size: 2.5vw;
-            }
-
-            .date-it {
-                font-size: 1 . vw;
-            }
-
-            .title-it {
-                font-size: 3vw;
-            }
-
-        }
-
-        @media (min-width: 80em) {
-
-            /* hi-res laptops and desktops */
             .posting {
                 font-size: 2vw;
             }
@@ -275,7 +246,40 @@
             }
 
             .title-it {
-                font-size: 2.5vw;
+                font-size: 2.6vw;
+            }
+        }
+
+        @media (min-width: 64em) {
+
+            /* big landscape tablets, laptops, and desktops */
+            .posting {
+                font-size: 1.8vw;
+            }
+
+            .date-it {
+                font-size: 1vw;
+            }
+
+            .title-it {
+                font-size: 2vw;
+            }
+
+        }
+
+        @media (min-width: 80em) {
+
+            /* hi-res laptops and desktops */
+            .posting {
+                font-size: 1.5vw;
+            }
+
+            .date-it {
+                font-size: 0.6vw;
+            }
+
+            .title-it {
+                font-size: 2vw;
             }
         }
     </style>
@@ -345,7 +349,7 @@
 
     <div class="row">
         <div class="container-fluid">
-            <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="padding: 1.5rem;">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-8" style="padding: 1.5rem;">
 
 
                 {% block if_block %}
