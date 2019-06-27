@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'thewallsof',
-        'USER': 'root',
-        # 'NAME': 'my_db',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '@CPaxAugusta24',
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'thewallsof',
+        # 'USER': 'root',
+        'NAME': 'my_db',
+        'USER': 'postgres',
+        'PASSWORD': '@CPaxAugusta24',
         'HOST': '127.0.0.1',
-        # 'PORT': '5432',
+        'PORT': '5432',
 
         # 'PORT': '3306',
     }
@@ -142,7 +142,7 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "Templates/../templates/static")
+    os.path.join(BASE_DIR, "static")
 ]
 
 # STATICFILES_DIRS = (
