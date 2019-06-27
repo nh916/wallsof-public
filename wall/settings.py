@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'thewallsof',
-        # 'USER': 'root',
-        'NAME': 'my_db',
-        'USER': 'postgres',
-        'PASSWORD': '@CPaxAugusta24',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'thewallsof',
+        'USER': 'root',
+        # 'NAME': 'my_db',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '@CPaxAugusta24',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        # 'PORT': '5432',
 
         # 'PORT': '3306',
     }
