@@ -29,7 +29,7 @@ def display_menu(request):
     return render(request, 'wallOf/menu.html')
 
 
-def index(request):
+def frustrations(request):
     posts = Posts
 
     all_ranked_by_votes = ModelPosts.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
@@ -50,7 +50,7 @@ def index(request):
 
         except Exception:
             # messages.error(request, 'Error')
-            return render(request, 'wallOf/index.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
         try:
@@ -78,9 +78,9 @@ def index(request):
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
 
-            # return render(request, 'wallOf/index.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
-    return render(request, 'wallOf/index.html', context={'postF': posts, 'all': all_ranked_by_votes})
+    return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
 
 def secreteView(request):
@@ -197,7 +197,7 @@ def advice_view(request):
 #         'title',
 #         'emotion',
 #     ]
-#     template_name = 'wallOf/index.html'
+#     template_name = 'wallOf/frustrations.html'
 #
 #     def get_form(self, form_class=None):
 #         if form_class is None:
@@ -215,7 +215,7 @@ def advice_view(request):
 #         'up_vote',
 #         'down_vote',
 #     ]
-#     template_name = 'wallOf/index.html'
+#     template_name = 'wallOf/frustrations.html'
 
 # def get_form(self, form_class=None):
 #     if form_class is None:
