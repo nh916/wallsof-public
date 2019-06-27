@@ -26,6 +26,7 @@ SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['AugustusCaesar.pythonanywhere.com', 'www.thewallsof.com']
 
 
 # Application definition
@@ -89,6 +90,17 @@ DATABASES = {
         # 'PORT': '3306',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'AugustusCaesar$thewallsof',
+#         'USER': 'AugustusCaesar',
+#         'PASSWORD': 'Lbj23Kb24',
+#         'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
+#     }
+# }
 
 
 # Password validation
