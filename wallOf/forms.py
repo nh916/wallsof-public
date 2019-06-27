@@ -23,7 +23,8 @@ class Posts(forms.ModelForm):
                     'cols': 100,
                     'rows': 10,
                     'placeholder': 'how was your day',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
+                    'id': 'main-text',
                 },
             ),
             'title': Textarea(
@@ -31,7 +32,7 @@ class Posts(forms.ModelForm):
                     'cols': 100,
                     'rows': 2,
                     'placeholder': 'optional',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
                 }
             )
         }
@@ -77,7 +78,8 @@ class secretes(forms.ModelForm):
                     'cols': 100,
                     'rows': 10,
                     'placeholder': 'tell me...',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
+                    'id': 'main-text',
                 },
             ),
             'title': Textarea(
@@ -85,7 +87,7 @@ class secretes(forms.ModelForm):
                     'cols': 100,
                     'rows': 2,
                     'placeholder': 'optional',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
                 }
             )
         }
@@ -115,6 +117,7 @@ class advice(forms.ModelForm):
                     'rows': 10,
                     'placeholder': 'tell me...',
                     'class': 'input_here',
+                    'id': 'main-text'
                 },
             ),
             'title': Textarea(

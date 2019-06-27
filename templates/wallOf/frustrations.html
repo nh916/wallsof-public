@@ -1,0 +1,82 @@
+{% extends 'Base_All.html' %}
+{% load static %}
+
+{% block title %}Wall Of frustrations{% endblock %}
+
+
+{% block extra_head_at_end %}
+{% endblock %}
+
+{% block style %}
+
+    {#        body{#}
+    {#            background-color: #747476;#}
+    {#                background-color: #343A40;#}
+    {#        }#}
+    <style>
+
+
+        textarea {
+        {#border-radius: 0.5rem; background-color: #3C8FC2;#} background-color: #343A40;
+            color: white;
+
+        {#font-weight: bold;#} font-size: medium;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+
+
+
+
+{% block logo %}
+    <a href="{% url 'frustrations' %}">
+        <img src="{% static  'wall headers/wall-of-header png.png' %}" class="img-fluid" id="title_it"
+             alt="website logo"
+             style="max-height: 6rem;" title="UGGHHHHHHH!!!!!!!!!!!!">
+    </a>
+
+    {#            <a href="{% url 'frustrations' %}">#}
+    {#            <img src="{% static  'wall headers/the wall of frustrations.png' %}" class="img-fluid" id="title_it"#}
+    {#                 alt="website logo"#}
+    {#                 style="max-height: 3.5rem;" title="UGGHHHHHHH!!!!!!!!!!!!">#}
+    {#        </a>#}
+    {#        <br>#}
+    {#        <br>#}
+    <br>
+    <br>
+
+{% endblock %}
+
+
+
+{% block if_block %}
+    {% if posts.vote >= 50 %}
+        <img src="{% static 'pictures/why you no.png' %}" alt="why you no.."
+             style="position: relative;float: left; max-width: 20%; margin-right: 2rem" class="">
+
+    {% endif %}
+
+    {% if posts.vote >= 100 %}
+        <img src="{% static 'pictures/uggghhhh.webp' %}" alt="uuughhhhhh"
+             style="position: relative; float: right; max-width: 20%; max-height: 20rem; margin-left: 1rem;"
+             class="img-fluid">
+    {% endif %}
+{% endblock %}
+
+{% block postings %}{{ posts.frustration }} {% endblock %}
+
+{% block card_color %} bg-danger {% endblock %}
+
+{% block extra_card_style %} background-color: : #FF05F2{% endblock %}
+
+{% block card_title %} ugghhhhhhh {% endblock %}
+
+{% block animate %} fadeInRight {% endblock %}
+
+{% block body %}
+
+{% endblock %}

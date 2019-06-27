@@ -102,9 +102,11 @@
         }
 
         textarea {
-        {#border-radius: 0.5rem;#} background-color: #3C8FC2;
+            border-radius: 0.5rem;
+            background-color: #3C8FC2;
             color: white;
-        {#font-weight: bold;#} font-size: medium;
+            font-weight: bold;
+            font-size: medium;
         }
 
         ::-webkit-input-placeholder {
@@ -163,9 +165,17 @@
         }
 
         #id_title {
-            margin-left: 3%;
+            margin-left: 1.2%;
         }
 
+        #chars {
+            padding-left: 12%;
+        }
+
+        .count-chars {
+            padding: 0;
+            margin: 0;
+        }
     </style>
 
     {% block style %}
@@ -198,7 +208,6 @@
 <div style="width: 80%">
     {% block logo %}
 
-
         <a href="{% url 'secretes' %}">
             <img src="{% static  'wall headers/wall of secretes.png' %}" class="img-fluid" id="title_it"
                  alt="website logo"
@@ -216,6 +225,9 @@
 
                 {% csrf_token %}
                 {{ postF.as_p }}
+                <span id="chars">240</span> characters remaining
+                <br>
+
                 <input type="submit" hidden name="posted" value="this_post">
                 <button type="submit" class="btn btn-primary" onsubmit="" style="size: 20rem">save</button>
                 <br>
@@ -242,7 +254,7 @@
                 <div class="card text-white {% block card_color %} bg-danger {% endblock %} mb-3 wow
                     {% block animate %}fadeInRight {% endblock %}"
                      style="max-width: 60rem;"
-                     title="{% block card_title %} {% endblock %}">
+                     title="{% block card_title %} Post {% endblock %}">
 
 
                     <div class="card-body" style="{% block extra_post_style %} {% endblock %};">
@@ -362,6 +374,13 @@
 
     var csrftoken = getCookie('csrftoken');
 
+
+    let maxLength = 240;
+    $('#main-text').keyup(function () {
+        let length = $(this).val().length;
+        let lengths = maxLength - length;
+        $('#chars').text(lengths);
+    });
 
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
