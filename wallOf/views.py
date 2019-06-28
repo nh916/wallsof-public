@@ -48,8 +48,9 @@ def frustrations(request):
                 return redirect_back(request, 'frustrations')
 
 
-        except Exception:
+        except Exception as e:
             # messages.error(request, 'Error')
+            print(e)
             return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
@@ -71,9 +72,9 @@ def frustrations(request):
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
 
-        except Exception:
+        except Exception as e:
             # messages.error(request, 'Error')
-
+            print(e)
             response = JsonResponse({"success": "success was there"})
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
