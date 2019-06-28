@@ -125,7 +125,7 @@ class advice(forms.ModelForm):
                     'cols': 100,
                     'rows': 2,
                     'placeholder': 'optional',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
                 }
             )
         }
