@@ -1,0 +1,201 @@
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQByf_x1jOhHRrRfoZ2me4PiVnmsdwH3u4ZVCtRWSDUluMAjONX");
+}
+
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
+
+
+#id_title {
+    margin-left: 3.5rem;
+}
+
+.input_here {
+    margin-left: 0.5rem;
+}
+
+#title_it {
+    font-family: 'Londrina Solid', 'Luckiest Guy', cursive;
+}
+
+textarea {
+    border-radius: 0.5rem;
+    background-color: #3C8FC2;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+::-moz-placeholder {
+    color: white;
+}
+
+
+::placeholder {
+    color: lightgray;
+}
+
+label {
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.success_it {
+    -webkit-animation: seconds 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    position: relative;
+
+}
+
+
+@-webkit-keyframes seconds {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px;
+        position: absolute;
+    }
+}
+
+@keyframes seconds {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: -9999px;
+        position: absolute;
+    }
+}
+
+#id_title {
+    margin-left: 1.2%;
+}
+
+#chars {
+    padding-left: 12%;
+}
+
+.count-chars {
+    padding: 0;
+    margin: 0;
+}
+
+
+/*base px == 16*/
+
+@media (min-width: 20em) {
+
+    /*320px*/
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .date-it {
+        font-size: 1vw;
+    }
+
+    .posting {
+        font-size: 0.1vw;
+    }
+
+    .title-it {
+        font-size: 1.5vw;
+    }
+
+
+}
+
+/*481px*/
+@media (min-width: 30em) {
+
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .posting {
+        font-size: 3vw;
+    }
+
+    .date-it {
+        font-size: 2vw;
+    }
+
+    .title-it {
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 40em) {
+
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .posting {
+        font-size: 3vw;
+    }
+
+    .date-it {
+        font-size: 1.5vw;
+    }
+
+    .title-it {
+        font-size: 3.5vw;
+    }
+}
+
+@media (min-width: 60em) {
+
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .posting {
+        font-size: 2vw;
+    }
+
+    .date-it {
+        font-size: 1vw;
+    }
+
+    .title-it {
+        font-size: 2.6vw;
+    }
+}
+
+@media (min-width: 64em) {
+
+    /* big landscape tablets, laptops, and desktops */
+    .posting {
+        font-size: 1.8vw;
+    }
+
+    .date-it {
+        font-size: 1vw;
+    }
+
+    .title-it {
+        font-size: 2vw;
+    }
+
+}
+
+@media (min-width: 80em) {
+
+    /* hi-res laptops and desktops */
+    .posting {
+        font-size: 1.5vw;
+    }
+
+    .date-it {
+        font-size: 0.6vw;
+    }
+
+    .title-it {
+        font-size: 2vw;
+    }
+}
+
+
+
+

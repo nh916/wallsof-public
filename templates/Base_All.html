@@ -109,21 +109,39 @@
             font-size: medium;
         }
 
+
         ::-webkit-input-placeholder {
-            color: white;
+            /* WebKit, Blink, Edge */
+            color: white !important;
+        }
+
+        :-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: white !important;
+            opacity: 1;
         }
 
         ::-moz-placeholder {
-            color: white;
+            /* Mozilla Firefox 19+ */
+            color: white !important;
+            opacity: 1;
         }
 
-        {% comment %}        ::-ms-placeholder {
-                    color: white;
-                }{% endcomment %}
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: white !important;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: white !important;
+        }
 
         ::placeholder {
-            color: lightgray;
+            /* Most modern browsers support this now. */
+            color: #e5e5e5 !important;
         }
+
 
         label {
             font-style: italic;
@@ -141,6 +159,7 @@
             position: relative;
 
         }
+
 
         @-webkit-keyframes seconds {
             0% {
@@ -169,15 +188,13 @@
         }
 
         #chars {
-            padding-left: 12%;
+            padding-left: 8%;
         }
 
         .count-chars {
             padding: 0;
             margin: 0;
         }
-
-
 
 
         /*base px == 16*/
@@ -282,6 +299,8 @@
                 font-size: 2vw;
             }
         }
+
+
     </style>
 
     {% block style %}
