@@ -116,7 +116,7 @@ class advice(forms.ModelForm):
                     'cols': 100,
                     'rows': 10,
                     'placeholder': 'tell me...',
-                    'class': 'input_here',
+                    'class': 'input_here form-control',
                     'id': 'main-text'
                 },
             ),
