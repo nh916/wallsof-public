@@ -3,7 +3,7 @@ from wallOf import views as WallOf_Views
 
 urlpatterns = [
     path('secretes/', WallOf_Views.secreteView, name='secretes'),
-    path('secretes/', WallOf_Views.secreteView, name='secrete'),
+    path('secrete/', WallOf_Views.secreteView, name='secretes'),
 
 
     path('frustrations/', WallOf_Views.frustrations, name='frustrations'),
