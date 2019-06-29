@@ -1,10 +1,9 @@
-from django.urls import path
+from django.urls import path, re_path
 from wallOf import views as WallOf_Views
 
-urlpatterns = [
-    path('secretes/', WallOf_Views.secreteView, name='secretes'),
-    path('secrete/', WallOf_Views.secreteView, name='secretes'),
 
+urlpatterns = [
+    re_path(r'secretes?/$(?i)', WallOf_Views.secreteView, name='secretes'),
 
     path('frustrations/', WallOf_Views.frustrations, name='frustrations'),
     path('', WallOf_Views.frustrations, name='index.html'),
