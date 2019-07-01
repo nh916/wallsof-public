@@ -1,6 +1,8 @@
+/*     body{
+                    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQByf_x1jOhHRrRfoZ2me4PiVnmsdwH3u4ZVCtRWSDUluMAjONX");
+                }*/
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
-
 
 #id_title {
     margin-left: 3.5rem;
@@ -21,7 +23,6 @@ textarea {
     font-weight: bold;
     font-size: medium;
 }
-
 
 ::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
@@ -55,12 +56,10 @@ textarea {
     color: #e5e5e5 !important;
 }
 
-
 label {
     font-style: italic;
     font-weight: bold;
 }
-
 
 .success_it {
     -webkit-animation: seconds 1.0s forwards;
@@ -70,9 +69,7 @@ label {
     animation-iteration-count: 1;
     animation-delay: 3s;
     position: relative;
-
 }
-
 
 @-webkit-keyframes seconds {
     0% {
@@ -109,11 +106,8 @@ label {
     margin: 0;
 }
 
-
 /*base px == 16*/
-
 @media (min-width: 20em) {
-
     /*320px*/
     /* smartphones, iPhone, portrait 480x320 phones */
     .date-it {
@@ -131,7 +125,6 @@ label {
 
 /*481px*/
 @media (min-width: 30em) {
-
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .posting {
         font-size: 3vw;
@@ -147,7 +140,6 @@ label {
 }
 
 @media (min-width: 40em) {
-
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .posting {
         font-size: 3vw;
@@ -163,7 +155,6 @@ label {
 }
 
 @media (min-width: 60em) {
-
     /* tablet, landscape iPad, lo-res laptops ands desktops */
     .posting {
         font-size: 2vw;
@@ -179,7 +170,6 @@ label {
 }
 
 @media (min-width: 64em) {
-
     /* big landscape tablets, laptops, and desktops */
     .posting {
         font-size: 1.8vw;
@@ -192,11 +182,9 @@ label {
     .title-it {
         font-size: 2vw;
     }
-
 }
 
 @media (min-width: 80em) {
-
     /* hi-res laptops and desktops */
     .posting {
         font-size: 1.5vw;
@@ -211,11 +199,9 @@ label {
     }
 }
 
-
 /*
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
-
 // Small devices (landscape phones, 576px and up)*/
 @media (min-width: 36em) {
     .posting {
@@ -231,7 +217,6 @@ label {
     }
 }
 
-
 /*        // Medium devices (tablets, 768px and up)*/
 @media (min-width: 48em) {
     .posting {
@@ -246,7 +231,6 @@ label {
         font-size: 3.5vw;
     }
 }
-
 
 /*        // Large devices (desktops, 992px and up)*/
 @media (min-width: 62em) {
@@ -279,7 +263,6 @@ label {
 }
 
 @media (min-width: 100em) {
-
     /* hi-res laptops and desktops */
     .posting {
         font-size: 1.5vw;
@@ -293,3 +276,123 @@ label {
         font-size: 2vw;
     }
 }
+
+/*
+
+        !* The side navigation menu *!
+        .sidenav {
+            height: 100%;
+            !* 100% Full-height *!
+            width: 0;
+            !* 0 width - change this with JavaScript *!
+            position: fixed;
+            !* Stay in place *!
+            z-index: 1;
+            !* Stay on top *!
+            top: 0;
+            left: 0;
+            background-color: #111;
+            !* Black*!
+            overflow-x: hidden;
+            !* Disable horizontal scroll *!
+            padding-top: 60px;
+            !* Place content 60px from the top *!
+            transition: 0.5s;
+            !* 0.5 second transition effect to slide in the sidenav *!
+        }
+        !* The navigation menu links *!
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+        !* When you mouse over the navigation links, change their color *!
+        .sidenav a:hover,
+        .offcanvas a:focus {
+            color: #f1f1f1;
+        }
+        !* Position and style the close button (top right corner) *!
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        !* Style the links inside the navigation bar *!
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        !* Change the color of links on hover *!
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        !* Add a color to the active/current link *!
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        !* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) *!
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        a svg {
+            transition: all .5s ease;
+        &
+        :hover {
+            #transform: rotate(180deg);
+        }
+        }
+        #ico {
+            display: none;
+        }
+        .menu {
+            background: #000;
+            display: none;
+            padding: 5px;
+            width: 320px;
+        @include border-radius(5 px);
+            #transition: all 0.5s ease;
+        a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 10px 2px;
+            margin: 3px 0;
+            text-decoration: none;
+            background: #444;
+        &
+        :nth-child(1) {
+            margin-top: 0;
+        @include border-radius(3 px 3 px 0 0);
+        }
+        &
+        :nth-child(5) {
+            margin-bottom: 0;
+        @include border-radius(0 0 3 px 3 px);
+        }
+        &
+        :hover {
+            background: #555;
+        }
+        }
+        }
+        .nav-link{
+            border-bottom: 0.2rem solid whitesmoke;
+        }
+*/
