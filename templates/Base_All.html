@@ -532,7 +532,7 @@
         }
 
         .nav-link{
-            border-bottom: 0.2rem solid green;
+            border-bottom: 0.2rem solid grey;
         }
 
     </style>
@@ -580,8 +580,9 @@
 <!--   side nav-->
 <div id="sideNavigation" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'frustrations' %}" style="" class="nav-link">Wall of Frustrations</a>
-    <a href="{% url 'wisdom' %}">Wall Of Wisdom</a>
+
+    <a href="{% url 'frustrations' %}" style="color: #f15a24;" class="nav-link">Wall of Frustrations</a>
+    <a href="{% url 'wisdom' %}" class="nav-link" style="color: #c10de8;">Wall Of Wisdom</a>
 </div>
 
 <nav class="topnav">
