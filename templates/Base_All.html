@@ -396,7 +396,8 @@
             }
         }
 
-                /* The side navigation menu */
+
+        /* The side navigation menu */
         .sidenav {
             height: 100%;
             /* 100% Full-height */
@@ -443,23 +444,6 @@
             margin-left: 50px;
         }
 
-/*         Style page content - use this if you want to push the page content to the right when you open the side navigation
-        #main {
-            transition: margin-left .5s;
-            padding: 20px;
-            overflow: hidden;
-            width: 10%;
-        }
-
-        body {
-            overflow-x: hidden;
-        }*/
-
-/*         Add a black background color to the top navigation
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-        }*/
 
         /* Style the links inside the navigation bar */
         .topnav a {
@@ -498,9 +482,11 @@
         a svg {
             transition: all .5s ease;
 
-            &:hover {
-                #transform: rotate(180deg);
-            }
+        &
+        :hover {
+            #transform: rotate(180deg);
+        }
+
         }
 
         #ico {
@@ -512,33 +498,41 @@
             display: none;
             padding: 5px;
             width: 320px;
-            @include border-radius(5px);
+        @include border-radius(5 px);
 
             #transition: all 0.5s ease;
 
-            a {
-                display: block;
-                color: #fff;
-                text-align: center;
-                padding: 10px 2px;
-                margin: 3px 0;
-                text-decoration: none;
-                background: #444;
+        a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 10px 2px;
+            margin: 3px 0;
+            text-decoration: none;
+            background: #444;
 
-                &:nth-child(1) {
-                    margin-top: 0;
-                    @include border-radius(3px 3px 0 0);
-                }
+        &
+        :nth-child(1) {
+            margin-top: 0;
+        @include border-radius(3 px 3 px 0 0);
+        }
 
-                &:nth-child(5) {
-                    margin-bottom: 0;
-                    @include border-radius(0 0 3px 3px);
-                }
+        &
+        :nth-child(5) {
+            margin-bottom: 0;
+        @include border-radius(0 0 3 px 3 px);
+        }
 
-                &:hover {
-                    background: #555;
-                }
-            }
+        &
+        :hover {
+            background: #555;
+        }
+
+        }
+        }
+
+        .nav-link{
+            border-bottom: 0.2rem solid green;
         }
 
     </style>
@@ -582,11 +576,12 @@
     {% endblock %}
 </div>
 
+
+<!--   side nav-->
 <div id="sideNavigation" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Features</a>
-    <a href="#">Contact Us</a>
+    <a href="{% url 'frustrations' %}" style="" class="nav-link">Wall of Frustrations</a>
+    <a href="{% url 'wisdom' %}">Wall Of Wisdom</a>
 </div>
 
 <nav class="topnav">
@@ -602,9 +597,7 @@
 <div id="main">
     <!-- Add all your websites page content here  -->
 </div>
-<br>
-<br>
-<br>
+
 
 <script>
     function openNav() {
@@ -617,6 +610,8 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
+
+<!--end of side nav-->
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">

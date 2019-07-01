@@ -9,7 +9,7 @@ urlpatterns = [
     path('', WallOf_Views.frustrations, name='index.html'),
 
     path('redirected/', WallOf_Views.redirect_back, name='redirect_back'),
-    path('wisdom/', WallOf_Views.advice_view, name='advice'),
+    path('wisdom/', WallOf_Views.advice_view, name='wisdom'),
 
     # path('happiness', WallOf_Views.happiness, name='happiness')
 
