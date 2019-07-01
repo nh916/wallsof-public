@@ -532,7 +532,7 @@
         }
 
         .nav-link{
-            border-bottom: 0.2rem solid grey;
+            border-bottom: 0.2rem solid whitesmoke;
         }
 
     </style>
@@ -566,7 +566,6 @@
 
 <div style="width: 80%">
     {% block logo %}
-
         <a href="{% url 'secretes' %}">
             <img src="{% static  'wall headers/wall of secretes.png' %}" class="img-fluid" id="title_it"
                  alt="website logo"
@@ -588,9 +587,9 @@
 <nav class="topnav">
     <a href="#" onclick="openNav()">
         <svg width="30" height="30" id="icoOpen">
-            <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
-            <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
-            <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+            <path d="M0,5 30,5" stroke="#000" stroke-width="3"/>
+            <path d="M0,14 30,14" stroke="#000" stroke-width="3"/>
+            <path d="M0,23 30,23" stroke="#000" stroke-width="3"/>
         </svg>
     </a>
 </nav>
@@ -611,8 +610,12 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
+<br>
+<br>
 
 <!--end of side nav-->
+
+
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
