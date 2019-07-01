@@ -396,6 +396,7 @@
             }
         }
 
+{% comment %}
 
         /* The side navigation menu */
         .sidenav {
@@ -534,6 +535,7 @@
         .nav-link{
             border-bottom: 0.2rem solid whitesmoke;
         }
+{% endcomment %}
 
     </style>
 
@@ -575,6 +577,7 @@
     {% endblock %}
 </div>
 
+{% comment %}
 
 <!--   side nav-->
 <div id="sideNavigation" class="sidenav">
@@ -586,7 +589,7 @@
 
 <nav class="topnav">
     <a href="#" onclick="openNav()">
-        <svg width="30" height="30" id="icoOpen">
+        <svg width="30" height="30" id="icoOpen" style="position: relative;">
             <path d="M0,5 30,5" stroke="#000" stroke-width="3"/>
             <path d="M0,14 30,14" stroke="#000" stroke-width="3"/>
             <path d="M0,23 30,23" stroke="#000" stroke-width="3"/>
@@ -610,10 +613,10 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
-<br>
-<br>
+
 
 <!--end of side nav-->
+{% endcomment %}
 
 
 
