@@ -93,16 +93,6 @@ class secretes(forms.ModelForm):
         }
 
 
-
-
-
-
-
-
-
-
-
-
 class advice(forms.ModelForm):
     class Meta:
         model = ModelAdvice
@@ -131,4 +121,20 @@ class advice(forms.ModelForm):
         }
 
 
+class comment(forms.ModelForm):
+    class Meta:
+        model = ModelComment
+        fields = [
+            'comment'
+        ]
 
+        widgets = {
+            'comment': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 10,
+                    'placeholder': 'I feel you...',
+                    'class': ' form-control',
+                },
+            ),
+        }

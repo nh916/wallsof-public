@@ -119,3 +119,17 @@ class ModelAdvice(models.Model):
 
         else:
             return self.title
+
+
+class ModelComment(models.Model):
+    comment = models.TextField(blank=False, max_length=120)
+    date_and_time = models.DateTimeField(auto_now_add=True)
+    only_date = models.DateField(auto_now_add=True)
+    up_vote = models.IntegerField(default=0, blank=True, null=False)
+    down_vote = models.IntegerField(default=0, blank=True, null=False)
+
+    parent_post = models.ForeignKey(ModelPosts, ModelSecretes, ModelAdvice, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.comment
