@@ -128,7 +128,7 @@ class ModelComment(models.Model):
     up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
 
-    parent_post = models.ForeignKey(ModelPosts, ModelSecretes, ModelAdvice, on_delete=models.CASCADE)
+    # parent_post = models.ForeignKey(ModelPosts)
 
 
     def __str__(self):
