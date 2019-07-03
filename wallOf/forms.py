@@ -121,7 +121,7 @@ class advice(forms.ModelForm):
         }
 
 
-class comment(forms.ModelForm):
+class Comment(forms.ModelForm):
     class Meta:
         model = ModelComment
         fields = [
@@ -131,10 +131,12 @@ class comment(forms.ModelForm):
         widgets = {
             'comment': Textarea(
                 attrs={
-                    'cols': 100,
-                    'rows': 10,
+                    'cols': 50,
+
+                    'rows': 1,
+                    # thin
                     'placeholder': 'I feel you...',
-                    'class': ' form-control',
+                    'class': 'form-control',
                 },
             ),
         }

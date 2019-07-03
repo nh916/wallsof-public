@@ -1,5 +1,5 @@
 from django.contrib import admin
-from wallOf.models import ModelPosts, ModelSecretes, ModelAdvice
+from wallOf.models import *
 
 # Register your models here.
 
@@ -7,3 +7,4 @@ from wallOf.models import ModelPosts, ModelSecretes, ModelAdvice
 admin.site.register(ModelPosts)
 admin.site.register(ModelSecretes)
 admin.site.register(ModelAdvice)
+admin.site.register(ModelComment)

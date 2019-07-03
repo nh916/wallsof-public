@@ -1,9 +1,11 @@
 import json
+import traceback
 
 from django.contrib import messages
 from django.db.models import F
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 from wallOf.forms import *
 from wallOf.models import *
@@ -37,7 +39,7 @@ def frustrations(request):
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
-    if request.method == 'POST' and not request.is_ajax():
+    if request.method == 'POST' and not request.is_ajax() and 'postings' in request.POST:
         try:
             form = Posts(request.POST)
             if form.is_valid():
@@ -47,11 +49,41 @@ def frustrations(request):
                 # return redirect('redirect_for_frustrations')
                 return redirect_back(request, 'frustrations')
 
-
         except Exception as e:
             # messages.error(request, 'Error')
             print(e)
             return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
+    #
+    # if request.method == 'POST' and not request.is_ajax() and 'comment' in request.POST:
+    #
+    #     # try:
+    #     form = Comment(request.POST)
+    #     if form.is_valid():
+    #         form.clean()
+    #         print(request.POST)
+    #         print(request.body)
+    #
+    #
+    #         # form.content_type = ModelPosts
+    #         # form.content_object = ModelPosts
+    #         # content_type = ContentType.objects.get_for_model(ModelPosts)
+    #         # object_id = request.POST['comment'] - 3669
+    #         # content_object = (content_type = content_type, object_id=object_id)
+    #         # form.content_type = Posts()
+    #         # form.object_id = int(request.POST) - 3669
+    #
+    #         form.save()
+    #         messages.success(request, 'comment Saved!')
+    #         return render(request, 'wallOf/frustrations.html',
+    #                       context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
+
+        # except Exception as e:
+        # print(e)
+        # print(e.__traceback__)
+        # traceback.print_exc()
+
+        return render(request, 'wallOf/frustrations.html',
+                      context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
 
     if request.is_ajax() and request.method == 'POST':
         try:
@@ -81,7 +113,8 @@ def frustrations(request):
 
             # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
-    return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
+    return render(request, 'wallOf/frustrations.html',
+                  context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
 
 
 def secreteView(request):
