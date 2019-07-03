@@ -55,7 +55,7 @@ def frustrations(request):
             return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
-        try:
+        # try:
             ajax_received = json.loads(request.body.decode('utf-8'))
 
             if ajax_received['Name'] == 'up_voted_It':
@@ -73,18 +73,25 @@ def frustrations(request):
 
 
             if ajax_received['Name'] == 'comment':
-                print(ajax_received)
-                print(request.POST)
+                the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
+
+                comments = ModelComment(
+                    comment=ajax_received['textarea'],
+                    content_type=ContentType.objects.get_for_model(ModelPosts),
+                    object_id=(int(ajax_received['Value']) - 3669)
+                )
+                comments.clean()
+                comments.save()
 
             response = JsonResponse({"success": "success was there"})
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
 
-        except Exception as e:
-            # messages.error(request, 'Error')
-            print(e)
-            print(traceback)
-            print(e.__traceback__)
+        # except Exception as e:
+        #     # messages.error(request, 'Error')
+        #     print(e)
+        #     print(traceback)
+        #     print(e.__traceback__)
 
             response = JsonResponse({"success": "success was there"})
             response.status_code = 400  # To announce that the user isn't allowed to publish

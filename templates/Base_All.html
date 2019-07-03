@@ -223,7 +223,6 @@
 
                             {% csrf_token %}
                             <div class="btn {% block up_btn_color %} btn-primary {% endblock %}">
-                                {#                             id="{{ posts.salted_pk }}"#}
                                 <button type="submit" title="up vote" name="up_voted_It"
                                         value={{ posts.salted_pk }} class="" style="size: 9rem"
                                         onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-up"></i>
@@ -240,16 +239,21 @@
                         </div>
 
 
+                        {% for comments in  posts.comment_set.all %}
+                            <p>{{ comments }}</p>
+                        {% endfor %}
+
+
                         {#                                                <div class="row" style="padding: 1rem">#}
 
 
-                        <form action="" class="ajax">
-                            {#                            <label for=""></label>#}
+                        <form action="" class="ajax" method="post">
+                            <label for="{{ posts.salted_pk }}"></label>
                             <textarea class="form-control"
                                       style="background: white; margin-top: 1rem; margin-bottom: 1rem" name="textarea"
                                       cols="100"
                                       rows="2"
-                                      placeholder="I feel you ..."></textarea>
+                                      placeholder="I feel you ..." id="{{ posts.salted_pk }}"></textarea>
 
                             <button type="submit" title="what do you think?" class="btn btn-primary"> save
                             </button>
