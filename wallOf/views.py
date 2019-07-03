@@ -53,37 +53,6 @@ def frustrations(request):
             # messages.error(request, 'Error')
             print(e)
             return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
-    #
-    # if request.method == 'POST' and not request.is_ajax() and 'comment' in request.POST:
-    #
-    #     # try:
-    #     form = Comment(request.POST)
-    #     if form.is_valid():
-    #         form.clean()
-    #         print(request.POST)
-    #         print(request.body)
-    #
-    #
-    #         # form.content_type = ModelPosts
-    #         # form.content_object = ModelPosts
-    #         # content_type = ContentType.objects.get_for_model(ModelPosts)
-    #         # object_id = request.POST['comment'] - 3669
-    #         # content_object = (content_type = content_type, object_id=object_id)
-    #         # form.content_type = Posts()
-    #         # form.object_id = int(request.POST) - 3669
-    #
-    #         form.save()
-    #         messages.success(request, 'comment Saved!')
-    #         return render(request, 'wallOf/frustrations.html',
-    #                       context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
-
-        # except Exception as e:
-        # print(e)
-        # print(e.__traceback__)
-        # traceback.print_exc()
-
-        return render(request, 'wallOf/frustrations.html',
-                      context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
 
     if request.is_ajax() and request.method == 'POST':
         try:
@@ -100,6 +69,10 @@ def frustrations(request):
                         'down_vote']
                 ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
+            if ajax_received['Name'] == 'comment':
+                print(ajax_received)
+                print(request.POST)
+
             response = JsonResponse({"success": "success was there"})
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
@@ -107,8 +80,10 @@ def frustrations(request):
         except Exception as e:
             # messages.error(request, 'Error')
             print(e)
+            print(traceback)
+
             response = JsonResponse({"success": "success was there"})
-            response.status_code = 200  # To announce that the user isn't allowed to publish
+            response.status_code = 400  # To announce that the user isn't allowed to publish
             return response
 
             # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})

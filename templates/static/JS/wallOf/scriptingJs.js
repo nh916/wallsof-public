@@ -17,9 +17,11 @@ var wow = new WOW(
 wow.init();
 
 
+const url_of_this_page = window.location.href;
+
+
 // takes care of voting
 function vote_here(name, value) {
-    const url_of_this_page = window.location.href;
     let data = {
         Name: name,
         Value: value
@@ -59,6 +61,46 @@ function vote_here(name, value) {
 
     }
 }
+
+
+
+
+function comment(name, post_ID) {
+
+    let data = {
+        Name: name,
+        post_ID: post_ID,
+        Comment: document.getElementById(post_ID + "_comment").value,
+    };
+    console.log(data);
+
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: url_of_this_page,
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": csrftoken,
+            },
+            data: JSON.stringify(data),
+
+            success: function () {
+                console.log("success")
+            },
+            error: {
+                function() {
+                    console.log("#.ajax == failure");
+                },
+            },
+        });
+
+    });
+}
+
+
+
 
 
 // using jQuery
