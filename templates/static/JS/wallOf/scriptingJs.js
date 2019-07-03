@@ -1,7 +1,6 @@
 new WOW().init();
 
-var wow = new WOW(
-    {
+var wow = new WOW({
         boxClass: 'wow',      // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)
         offset: 0,          // distance to the element when triggering the animation (default is 0)
@@ -38,7 +37,21 @@ function vote_here(name, value) {
             data: JSON.stringify(data),
 
             success: function () {
-                console.log("up voottteeeee!!!!")
+                let current_number = parseInt(document.getElementById(value).innerText);
+
+                if (name === 'up_voted_It') {
+                    current_number = current_number + 1;
+                    document.getElementById(value).innerHTML = (current_number);
+                    console.log("up voottteeeee!!!!");
+                } else if (name === 'down_voted_It') {
+                    current_number = current_number - 1;
+                    document.getElementById(value).innerHTML = (current_number);
+                    console.log("down vote!!!!");
+                } else {
+
+                }
+
+
             },
             error: {
                 function() {
@@ -46,23 +59,8 @@ function vote_here(name, value) {
                 },
             },
         });
-
     });
-
-    let current_number = parseInt(document.getElementById(value).innerText);
-
-    if (name === 'up_voted_It') {
-        current_number = current_number + 1;
-        document.getElementById(value).innerHTML = (current_number);
-    } else if (name === 'down_voted_It') {
-        current_number = current_number - 1;
-        document.getElementById(value).innerHTML = (current_number);
-    } else {
-
-    }
 }
-
-
 
 
 function comment(name, post_ID) {
@@ -100,7 +98,66 @@ function comment(name, post_ID) {
 }
 
 
+/*function ajax_send() {
+    $(document).ready(function () {
+        $('form.ajax').on('submit', function () {
+            console.log("trigger");
 
+            let that = $(this),
+                /!*                url = url_of_this_page,
+                                method = "POST",*!/
+                data = {};
+
+            that.find('[name]').each(function (index, value) {
+                let thatt = $(this),
+                    name = thatt.attr('name');
+                data[name] = thatt.val()
+            });
+            console.log(data);
+
+
+        });
+    });
+    return false;
+}*/
+
+
+$('form.ajax').on('submit', function () {
+
+    let that = $(this),
+        data = {
+            Name: 'comment'
+        };
+
+    that.find('[name]').each(function (index, value) {
+        let thatt = $(this),
+            name = thatt.attr('name');
+        data[name] = thatt.val()
+    });
+
+    console.log(data);
+
+    $.ajax({
+        type: "POST",
+        url: url_of_this_page,
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrftoken,
+        },
+        data: JSON.stringify(data),
+
+        success: function () {
+            console.log("sent")
+        },
+        error: {
+            function() {
+                console.log("#.ajax == failure");
+            },
+        },
+    });
+    return false;
+});
 
 
 // using jQuery

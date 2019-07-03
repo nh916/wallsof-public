@@ -69,6 +69,9 @@ def frustrations(request):
                         'down_vote']
                 ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
+
+
+
             if ajax_received['Name'] == 'comment':
                 print(ajax_received)
                 print(request.POST)
@@ -81,10 +84,22 @@ def frustrations(request):
             # messages.error(request, 'Error')
             print(e)
             print(traceback)
+            print(e.__traceback__)
 
             response = JsonResponse({"success": "success was there"})
             response.status_code = 400  # To announce that the user isn't allowed to publish
             return response
+
+
+
+
+
+
+
+
+
+
+
 
             # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
