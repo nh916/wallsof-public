@@ -5,21 +5,9 @@ from django.contrib import messages
 from django.db.models import F
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 
 from wallOf.forms import *
 from wallOf.models import *
-
-
-# def redirect_for_frustrations(request):
-#     # render(request, 'wallOf/wall.html')
-#     render(request, 'wallOf/check.html')
-#     return redirect('frustrations')
-#
-#
-# def redirect_to_secrete(request):
-#     render(request, 'wallOf/check.html')
-#     return redirect('secretes')
 
 
 def redirect_back(request, redirect_here):
@@ -51,41 +39,44 @@ def frustrations(request):
 
         except Exception as e:
             # messages.error(request, 'Error')
+            messages.error(request, 'Error')
             print(e)
+            print(traceback)
+            print(e.__traceback__)
             return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
+    if request.method == 'POST' and not request.is_ajax() and 'comment' in request.POST:
+        print(request.POST)
 
     if request.is_ajax() and request.method == 'POST':
         # try:
-            ajax_received = json.loads(request.body.decode('utf-8'))
+        ajax_received = json.loads(request.body.decode('utf-8'))
 
-            if ajax_received['Name'] == 'up_voted_It':
-                current_ups = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
-                    'up_vote']
+        if ajax_received['Name'] == 'up_voted_It':
+            current_ups = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
+                'up_vote']
 
-                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
-            if ajax_received['Name'] == 'down_voted_It':
-                current_down = \
-                    ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
-                        'down_vote']
-                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
+            ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
+        if ajax_received['Name'] == 'down_voted_It':
+            current_down = \
+                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
+                    'down_vote']
+            ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
+        if ajax_received['Name'] == 'comment':
+            the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
 
+            comments = ModelComment(
+                comment=ajax_received['textarea'],
+                content_type=ContentType.objects.get_for_model(ModelPosts),
+                object_id=(int(ajax_received['Value']) - 3669)
+            )
+            comments.clean()
+            comments.save()
 
-
-            if ajax_received['Name'] == 'comment':
-                the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
-
-                comments = ModelComment(
-                    comment=ajax_received['textarea'],
-                    content_type=ContentType.objects.get_for_model(ModelPosts),
-                    object_id=(int(ajax_received['Value']) - 3669)
-                )
-                comments.clean()
-                comments.save()
-
-            response = JsonResponse({"success": "success was there"})
-            response.status_code = 200  # To announce that the user isn't allowed to publish
-            return response
+        response = JsonResponse({"success": "success was there"})
+        response.status_code = 200  # To announce that the user isn't allowed to publish
+        return response
 
         # except Exception as e:
         #     # messages.error(request, 'Error')
@@ -93,22 +84,11 @@ def frustrations(request):
         #     print(traceback)
         #     print(e.__traceback__)
 
-            response = JsonResponse({"success": "success was there"})
-            response.status_code = 400  # To announce that the user isn't allowed to publish
-            return response
+        response = JsonResponse({"success": "success was there"})
+        response.status_code = 400  # To announce that the user isn't allowed to publish
+        return response
 
-
-
-
-
-
-
-
-
-
-
-
-            # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
+        # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     return render(request, 'wallOf/frustrations.html',
                   context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
@@ -134,8 +114,11 @@ def secreteView(request):
                 return redirect_back(request, 'secretes')
 
 
-        except Exception:
-            # messages.error(request, 'Error')
+        except Exception as e:
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
             return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
@@ -158,8 +141,12 @@ def secreteView(request):
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
 
-        except Exception:
+        except Exception as e:
             # messages.error(request, 'Error')
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
             response = JsonResponse({"success": "success was there"})
             response.status_code = 400  # To announce that the user isn't allowed to publish
             return response
@@ -188,8 +175,12 @@ def advice_view(request):
                 return redirect_back(request, 'advice')
 
 
-        except Exception:
+        except Exception as e:
             # messages.error(request, 'Error')
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
             return render(request, 'wallOf/advice.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
@@ -212,8 +203,12 @@ def advice_view(request):
             response.status_code = 200  # To announce that the user isn't allowed to publish
             return response
 
-        except Exception:
+        except Exception as e:
             # messages.error(request, 'Error')
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
             response = JsonResponse({"success": "success was there"})
             response.status_code = 400  # To announce that the user isn't allowed to publish
             return response

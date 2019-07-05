@@ -308,47 +308,6 @@
     </div>
 </div>
 
-{% comment %}
-
-<!--   side nav-->
-<div id="sideNavigation" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-    <a href="{% url 'frustrations' %}" style="color: #f15a24;" class="nav-link">Wall of Frustrations</a>
-    <a href="{% url 'wisdom' %}" class="nav-link" style="color: #c10de8;">Wall Of Wisdom</a>
-</div>
-
-<nav class="topnav">
-    <a href="#" onclick="openNav()">
-        <svg width="30" height="30" id="icoOpen" style="position: relative;">
-            <path d="M0,5 30,5" stroke="#000" stroke-width="3"/>
-            <path d="M0,14 30,14" stroke="#000" stroke-width="3"/>
-            <path d="M0,23 30,23" stroke="#000" stroke-width="3"/>
-        </svg>
-    </a>
-</nav>
-
-<div id="main">
-    <!-- Add all your websites page content here  -->
-</div>
-
-
-<script>
-    function openNav() {
-        document.getElementById("sideNavigation").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("sideNavigation").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-</script>
-
-
-<!--end of side nav-->
-{% endcomment %}
-
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
     <div class="row">
@@ -438,6 +397,10 @@
                         {#                                                <div class="row" style="padding: 1rem">#}
 
 
+
+
+
+
                         <form action="" class="ajax" method="post">
                             <label for="{{ posts.salted_pk }}"></label>
                             <textarea class="form-control"
@@ -452,6 +415,9 @@
 
 
                         {#                                                </div>#}
+
+
+
 
 
                     </div>
