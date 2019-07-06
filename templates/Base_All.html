@@ -35,156 +35,12 @@
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png"/>
 
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+{#    <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>#}
+{#    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">#}
 
     <style>
-        a {
-            text-decoration: none;
-        }
 
-        /***********************/
-        .menu {
-            list-style: none;
-            margin: 2em auto;
-            padding-left: 0;
-            width: 15em;
-        }
-
-        .menu a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .menu li {
-            box-shadow: 3px 0 green inset;
-            padding-left: 1em;
-            margin-bottom: 5px;
-            height: 50px;
-            line-height: 50px;
-            transition: all .1s;
-        }
-
-        .menu li:hover,
-        li:active {
-            box-shadow: 15em 0 green inset;
-        }
-
-        .menu li i {
-            vertical-align: middle;
-            margin-top: -3px;
-        }
-
-        .menu li span {
-            margin-left: 6px;
-        }
-
-        nav {
-            font-family: 'Roboto', sans-serif;
-            position: absolute;
-            left: -15.25em;
-            z-index: 1000;
-            background: orangered;
-            text-align: left;
-            height: 100%;
-            top: 0;
-            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
-            padding-right: .25em;
-            font-weight: bold;
-            transition: all .5s;
-        }
-
-        nav.mostrar {
-            left: 0;
-        }
-
-        #oscuro {
-            position: absolute;
-            left: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, .7);
-            text-align: left;
-            height: 100%;
-            width: 0;
-            top: 0;
-            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
-            padding-right: .25em;
-            transition: all .5s;
-        }
-
-        #oscuro.mostrar2 {
-            width: 100%;
-        }
-
-
-        .menusuperior #nav {
-            float: left;
-            position: relative;
-            z-index: 5000;
-            width: 25px;
-            cursor: pointer;
-            margin-left: 10px;
-            margin-top: 7px;
-        }
-
-        .menusuperior #nav span {
-            display: block;
-            height: 3px;
-            width: 20px;
-            background-color: #000;
-            margin-bottom: 3px;
-            transition: all .3s ease;
-        }
-
-        .menusuperior #nav span.rojo {
-            background-color: white;
-        }
-
-        .menusuperior #nav.active span:nth-of-type(1) {
-            -webkit-transform: translateY(6px) rotate(45deg);
-            transform: translateY(6px) rotate(45deg);
-        }
-
-        .menusuperior #nav.active span:nth-of-type(2) {
-            -webkit-transform: scale(0);
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        .menusuperior #nav.active span:nth-of-type(3) {
-            -webkit-transform: translateY(-6px) rotate(-45deg);
-            transform: translateY(-6px) rotate(-45deg);
-        }
-
-
-        #nav-menu {
-            position: absolute;
-            z-index: 500;
-            height: 100%;
-            top: 40px;
-            right: 0px;
-            height: 460px;
-            border-left: 2px solid #434343;
-            transition: -webkit-transform .5s ease;
-            transition: transform .5s ease;
-            transition: transform .5s ease, -webkit-transform .5s ease;
-            content-box: border-box;
-        }
-
-        #nav-menu.active {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
-        }
-
-
-        #nav-menu .nav-item i {
-            font-size: 28px;
-            display: block;
-            margin-bottom: 10px;
-        }
     </style>
 
 
@@ -466,7 +322,7 @@
             $(".nav-item").each(function () {
                 $(this).removeClass("selected");
                 $('#nav-menu').fadeOut('normal');
-            });
+            })
             $(this).addClass("selected");
             $("#nav, #nav-menu, .main, #mask").removeClass("active");
             $('#nav-menu').fadeOut('normal');
