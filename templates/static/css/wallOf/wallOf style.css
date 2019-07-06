@@ -1,6 +1,4 @@
-/*     body{
-                    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQByf_x1jOhHRrRfoZ2me4PiVnmsdwH3u4ZVCtRWSDUluMAjONX");
-                }*/
+
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
 
@@ -451,7 +449,7 @@ nav {
     text-align: left;
     height: 100%;
     top: 0;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     padding-right: .25em;
     font-weight: bold;
     transition: all .5s;
@@ -470,7 +468,7 @@ nav.mostrar {
     height: 100%;
     width: 0;
     top: 0;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     padding-right: .25em;
     transition: all .5s;
 }
@@ -525,7 +523,7 @@ nav.mostrar {
     z-index: 500;
     height: 100%;
     top: 40px;
-    right: 0px;
+    right: 0;
     height: 460px;
     border-left: 2px solid #434343;
     transition: -webkit-transform .5s ease;

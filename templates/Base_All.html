@@ -91,7 +91,7 @@
             text-align: left;
             height: 100%;
             top: 0;
-            box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
             padding-right: .25em;
             font-weight: bold;
             transition: all .5s;
@@ -110,7 +110,7 @@
             height: 100%;
             width: 0;
             top: 0;
-            box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
             padding-right: .25em;
             transition: all .5s;
         }
@@ -466,7 +466,7 @@
             $(".nav-item").each(function () {
                 $(this).removeClass("selected");
                 $('#nav-menu').fadeOut('normal');
-            })
+            });
             $(this).addClass("selected");
             $("#nav, #nav-menu, .main, #mask").removeClass("active");
             $('#nav-menu').fadeOut('normal');

@@ -132,7 +132,7 @@ $('form.ajax').on('submit', function () {
     that.find('[name]').each(function (index, value) {
         let thatt = $(this),
             name = thatt.attr('name'),
-        id = thatt.attr('id');
+            id = thatt.attr('id');
 
         data[name] = thatt.val();
         data["Value"] = thatt.attr('id');

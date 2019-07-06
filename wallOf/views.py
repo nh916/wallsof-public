@@ -204,7 +204,6 @@ def advice_view(request):
             return response
 
         except Exception as e:
-            # messages.error(request, 'Error')
             messages.error(request, 'Error')
             print(e)
             print(traceback)
@@ -216,37 +215,3 @@ def advice_view(request):
             # return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     return render(request, 'wallOf/advice.html', context={'postF': posts, 'all': all_ranked_by_votes})
-
-# class create_post(CreateView):
-#     model = ModelPosts
-#     fields = [
-#         'title',
-#         'emotion',
-#     ]
-#     template_name = 'wallOf/frustrations.html'
-#
-#     def get_form(self, form_class=None):
-#         if form_class is None:
-#             form_class = self.get_form_class()
-#
-#         form = super(create_post, self).get_form(form_class)
-#         form.fields['emotion'].widget.attrs = {'cols': 40, 'rows': 20, 'placeholder': 'tell me'}
-#         return form
-
-
-# class update_vote(UpdateView):
-#     model = ModelPosts
-#     fields = [
-#         # 'vote',
-#         'up_vote',
-#         'down_vote',
-#     ]
-#     template_name = 'wallOf/frustrations.html'
-
-# def get_form(self, form_class=None):
-#     if form_class is None:
-#         form_class = self.get_form_class()
-#
-#     form = super(update_vote, self).get_form(form_class)
-#     form.fields['vote'].widget = form.RadioSelect
-#     return form
