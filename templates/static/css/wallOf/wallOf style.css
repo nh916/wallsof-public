@@ -118,7 +118,10 @@ label {
     .title-it {
         font-size: 3.5vw;
     }
-
+    .logo-it{
+        /*padding-left: 100rem;*/
+        /*margin-left: 1rem;*/
+    }
 }
 
 /*481px*/
