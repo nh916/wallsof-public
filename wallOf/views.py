@@ -49,40 +49,40 @@ def frustrations(request):
         print(request.POST)
 
     if request.is_ajax() and request.method == 'POST':
-        # try:
-        ajax_received = json.loads(request.body.decode('utf-8'))
+        try:
+            ajax_received = json.loads(request.body.decode('utf-8'))
 
-        if ajax_received['Name'] == 'up_voted_It':
-            current_ups = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
-                'up_vote']
+            if ajax_received['Name'] == 'up_voted_It':
+                current_ups = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
+                    'up_vote']
 
-            ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
-        if ajax_received['Name'] == 'down_voted_It':
-            current_down = \
-                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
-                    'down_vote']
-            ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
+                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
+            if ajax_received['Name'] == 'down_voted_It':
+                current_down = \
+                    ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
+                        'down_vote']
+                ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
-        if ajax_received['Name'] == 'comment':
-            the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
+            if ajax_received['Name'] == 'comment':
+                the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
 
-            comments = ModelComment(
-                comment=ajax_received['textarea'],
-                content_type=ContentType.objects.get_for_model(ModelPosts),
-                object_id=(int(ajax_received['Value']) - 3669)
-            )
-            comments.clean()
-            comments.save()
+                comments = ModelComment(
+                    comment=ajax_received['textarea'],
+                    content_type=ContentType.objects.get_for_model(ModelPosts),
+                    object_id=(int(ajax_received['Value']) - 3669)
+                )
+                comments.clean()
+                comments.save()
 
-        response = JsonResponse({"success": "success was there"})
-        response.status_code = 200  # To announce that the user isn't allowed to publish
-        return response
+            response = JsonResponse({"success": "success was there"})
+            response.status_code = 200  # To announce that the user isn't allowed to publish
+            return response
 
-        # except Exception as e:
-        #     # messages.error(request, 'Error')
-        #     print(e)
-        #     print(traceback)
-        #     print(e.__traceback__)
+        except Exception as e:
+            # messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
 
         response = JsonResponse({"success": "success was there"})
         response.status_code = 400  # To announce that the user isn't allowed to publish
