@@ -45,9 +45,9 @@ class ModelPosts(models.Model):
             return self.title
 
 
-class ModelSecretes(models.Model):
+class Modelsecrets(models.Model):
     title = models.CharField(default="", blank=True, max_length=100, null=True)
-    secrete = models.TextField(blank=False, max_length=240)
+    secret = models.TextField(blank=False, max_length=240)
     date_and_time = models.DateTimeField(auto_now_add=True)
     only_date = models.DateField(auto_now_add=True)
     up_vote = models.IntegerField(default=0, blank=True, null=False)
@@ -78,7 +78,7 @@ class ModelSecretes(models.Model):
 
     def __str__(self):
         if self.title is None:
-            return self.secrete
+            return self.secret
 
         else:
             return self.title
@@ -123,16 +123,16 @@ class ModelAdvice(models.Model):
             return self.title
 
 
-class ModelComment(models.Model):
-    comment = models.TextField(blank=False, max_length=120)
-    date_and_time = models.DateTimeField(auto_now_add=True)
-    only_date = models.DateField(auto_now_add=True)
-    up_vote = models.IntegerField(default=0, blank=True, null=False)
-    down_vote = models.IntegerField(default=0, blank=True, null=False)
-
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True, blank=True)
-    object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = GenericForeignKey('content_type', 'object_id')
-
-    def __str__(self):
-        return self.comment
+# class ModelComment(models.Model):
+#     comment = models.TextField(blank=False, max_length=120)
+#     date_and_time = models.DateTimeField(auto_now_add=True)
+#     only_date = models.DateField(auto_now_add=True)
+#     up_vote = models.IntegerField(default=0, blank=True, null=False)
+#     down_vote = models.IntegerField(default=0, blank=True, null=False)
+#
+#     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True, blank=True)
+#     object_id = models.PositiveIntegerField(null=True, blank=True)
+#     content_object = GenericForeignKey('content_type', 'object_id')
+#
+#     def __str__(self):
+#         return self.comment

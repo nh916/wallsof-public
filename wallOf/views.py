@@ -63,16 +63,16 @@ def frustrations(request):
                         'down_vote']
                 ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
-            if ajax_received['Name'] == 'comment':
-                the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
-
-                comments = ModelComment(
-                    comment=ajax_received['textarea'],
-                    content_type=ContentType.objects.get_for_model(ModelPosts),
-                    object_id=(int(ajax_received['Value']) - 3669)
-                )
-                comments.clean()
-                comments.save()
+            # if ajax_received['Name'] == 'comment':
+            #     the_post = ModelPosts.objects.filter(pk=(int(ajax_received['Value']) - 3669))
+            #
+            #     comments = ModelComment(
+            #         comment=ajax_received['textarea'],
+            #         content_type=ContentType.objects.get_for_model(ModelPosts),
+            #         object_id=(int(ajax_received['Value']) - 3669)
+            #     )
+            #     comments.clean()
+            #     comments.save()
 
             response = JsonResponse({"success": "success was there"})
             response.status_code = 200  # To announce that the user isn't allowed to publish
@@ -91,27 +91,29 @@ def frustrations(request):
         # return render(request, 'wallOf/frustrations.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     return render(request, 'wallOf/frustrations.html',
-                  context={'postF': posts, 'all': all_ranked_by_votes, 'commentF': Comment})
+                  context={'postF': posts, 'all': all_ranked_by_votes,
+                           # 'commentF': Comment
+                           })
 
 
-def secreteView(request):
-    posts = secretes
+def secretView(request):
+    posts = secrets
 
-    all_ranked_by_votes = ModelSecretes.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
+    all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
                                                                                                          'date_and_time')
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
     if request.method == 'POST' and not request.is_ajax():
         try:
-            form = secretes(request.POST)
+            form = secrets(request.POST)
             if form.is_valid():
                 form.clean()
                 form.save()
                 messages.success(request, 'Post Saved!')
                 # need to fix this part
-                # return redirect('redirect_for_secrete')
-                return redirect_back(request, 'secretes')
+                # return redirect('redirect_for_secret')
+                return redirect_back(request, 'secrets')
 
 
         except Exception as e:
@@ -119,7 +121,7 @@ def secreteView(request):
             print(e)
             print(traceback)
             print(e.__traceback__)
-            return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     if request.is_ajax() and request.method == 'POST':
         try:
@@ -127,15 +129,15 @@ def secreteView(request):
 
             if ajax_received['Name'] == 'up_voted_It':
                 current_ups = \
-                    ModelSecretes.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
+                    Modelsecrets.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
                         'up_vote']
 
-                ModelSecretes.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
+                Modelsecrets.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
             if ajax_received['Name'] == 'down_voted_It':
                 current_down = \
-                    ModelSecretes.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
+                    Modelsecrets.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
                         'down_vote']
-                ModelSecretes.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
+                Modelsecrets.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
 
             response = JsonResponse({"success": "success was there"})
             response.status_code = 200  # To announce that the user isn't allowed to publish
@@ -151,9 +153,9 @@ def secreteView(request):
             response.status_code = 400  # To announce that the user isn't allowed to publish
             return response
 
-            # return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            # return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
-    return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
+    return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
 
 def advice_view(request):
@@ -172,7 +174,7 @@ def advice_view(request):
                 form.save()
                 messages.success(request, 'Post Saved!')
 
-                return redirect_back(request, 'advice')
+                return redirect_back(request, 'wisdom')
 
 
         except Exception as e:
@@ -212,6 +214,6 @@ def advice_view(request):
             response.status_code = 400  # To announce that the user isn't allowed to publish
             return response
 
-            # return render(request, 'wallOf/secrete.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            # return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     return render(request, 'wallOf/advice.html', context={'postF': posts, 'all': all_ranked_by_votes})

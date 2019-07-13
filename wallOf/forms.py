@@ -63,17 +63,17 @@ class Vote_Here(forms.Form):
     # }
 
 
-class secretes(forms.ModelForm):
+class secrets(forms.ModelForm):
     class Meta:
-        model = ModelSecretes
+        model = Modelsecrets
         fields = [
             'title',
-            'secrete'
+            'secret'
             # 'vote',
             # 'date',
         ]
         widgets = {
-            'secrete': Textarea(
+            'secret': Textarea(
                 attrs={
                     'cols': 100,
                     'rows': 10,
@@ -121,22 +121,22 @@ class advice(forms.ModelForm):
         }
 
 
-class Comment(forms.ModelForm):
-    class Meta:
-        model = ModelComment
-        fields = [
-            'comment'
-        ]
-
-        widgets = {
-            'comment': Textarea(
-                attrs={
-                    'cols': 50,
-
-                    'rows': 1,
-                    # thin
-                    'placeholder': 'I feel you...',
-                    'class': 'form-control',
-                },
-            ),
-        }
+# class Comment(forms.ModelForm):
+#     class Meta:
+#         model = ModelComment
+#         fields = [
+#             'comment'
+#         ]
+#
+#         widgets = {
+#             'comment': Textarea(
+#                 attrs={
+#                     'cols': 50,
+#
+#                     'rows': 1,
+#                     # thin
+#                     'placeholder': 'I feel you...',
+#                     'class': 'form-control',
+#                 },
+#             ),
+#         }

@@ -3,7 +3,7 @@ from wallOf import views as WallOf_Views
 
 
 urlpatterns = [
-    re_path(r'secrets?/$(?i)', WallOf_Views.secreteView, name='secretes'),
+    re_path(r'secrets?/$(?i)', WallOf_Views.secretView, name='secrets'),
 
     path('frustrations/', WallOf_Views.frustrations, name='frustrations'),
     path('', WallOf_Views.frustrations, name='index.html'),

@@ -100,7 +100,7 @@
 
 <body>
 {% if messages %}
-    <div class="alert-success success_it">
+    <div class="alert-success success_it" style="padding-left: 1rem">
         {% for message in messages %}
 
             {#            p-3 mb-2 bg-success text-white#}
@@ -245,10 +245,10 @@
                         </div>
 
 
-                        {% for comment in  posts.comment_set.all %}
+{% comment %}                        {% for comment in  posts.comment_set.all %}
                             <p>hi</p>
                             <p>{{ comment }}</p>
-                        {% endfor %}
+                        {% endfor %}{% endcomment %}
 
 
 
