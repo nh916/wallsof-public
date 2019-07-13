@@ -100,7 +100,7 @@ def secretView(request):
     posts = secrets
 
     all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
-                                                                                                         'date_and_time')
+                                                                                                        'date_and_time')
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
@@ -114,7 +114,6 @@ def secretView(request):
                 # need to fix this part
                 # return redirect('redirect_for_secret')
                 return redirect_back(request, 'secrets')
-
 
         except Exception as e:
             messages.error(request, 'Error')
@@ -175,7 +174,6 @@ def advice_view(request):
                 messages.success(request, 'Post Saved!')
 
                 return redirect_back(request, 'wisdom')
-
 
         except Exception as e:
             # messages.error(request, 'Error')
