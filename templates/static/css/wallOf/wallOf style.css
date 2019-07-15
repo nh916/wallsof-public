@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
 
+
+body{
+    overflow-x:hidden;
+}
+
 #id_title {
     margin-left: 3.5rem;
 }
