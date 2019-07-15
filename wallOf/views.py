@@ -99,8 +99,7 @@ def frustrations(request):
 def secretView(request):
     posts = secrets
 
-    all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
-                                                                                                        'date_and_time')
+    all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest', 'date_and_time')
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
