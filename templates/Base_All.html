@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
 
     {#    faveicons#}
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'favicon/apple-touch-icon-57x57.png' %}"/>
@@ -38,7 +38,6 @@
     {#    <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>#}
     {#    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">#}
     {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">#}
-
 
 
     <style>
@@ -155,7 +154,11 @@
         <!--FIN CONTENIDO CONTENIDO -->
     </main>
 
-    <div class="logo-it" style=" padding-left: 8%;">
+    <br>
+    <br>
+    <br>
+
+    <div class="logo-it" style="display: block; margin: auto; width: auto; padding-left: 10%;">
         {% block logo %}
             <a href="{% url 'secretes' %}" class="">
                 <img src="{% static  'wall headers/wall Of Wisdom.png' %}" class="img-fluid" id="title_it"
@@ -169,10 +172,11 @@
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
 
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8">
-            <form method="post" action="" name="posting" style="width: 80%" class="">
+            <form method="post" action="" name="posting"
+                  style="max-width: 80%; display: block; margin: auto; width: auto" class="">
 
                 {% csrf_token %}
                 {{ postF.as_p }}
@@ -194,8 +198,8 @@
 {% for posts in all %}
 
     <div class="row">
-        <div class="container-fluid">
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-8" style="padding: 1.5rem;">
+        <div class="container-fluid d-flex justify-content-center">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-11" style="padding: 1.5rem;">
 
 
                 {% block if_block %}
@@ -205,7 +209,7 @@
 
                 <div class="card text-white {% block card_color %} bg-danger {% endblock %} mb-3 wow
                     {% block animate %}fadeInRight {% endblock %}"
-                     style="max-width: 60rem;"
+                     style="max-width: 64rem; margin: auto;"
                      title="{% block card_title %} Post {% endblock %}">
 
 
@@ -247,16 +251,10 @@
                         </div>
 
 
-{% comment %}                        {% for comment in  posts.comment_set.all %}
+                        {% comment %}                        {% for comment in  posts.comment_set.all %}
                             <p>hi</p>
                             <p>{{ comment }}</p>
                         {% endfor %}{% endcomment %}
-
-
-
-
-
-
 
 
                         {% comment %}                        <form action="" class="ajax" method="post">
