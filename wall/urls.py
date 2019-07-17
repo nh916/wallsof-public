@@ -28,4 +28,5 @@ urlpatterns = [
 
     path('about/', home_Views.about, name='about'),
     path('robot/', home_Views.robot, name='robot'),
+    path('emil', home_Views.emil),
 ]
