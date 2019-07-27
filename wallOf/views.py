@@ -22,8 +22,10 @@ def display_menu(request):
 def frustrations(request):
     posts = Posts
 
-    all_ranked_by_votes = ModelPosts.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
-                                                                                                      'date_and_time')
+    # all_ranked_by_votes = ModelPosts.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest',
+    #                                                                                                   'date_and_time')
+
+    all_ranked_by_votes = ModelPosts.objects.order_by('date_and_time')
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
