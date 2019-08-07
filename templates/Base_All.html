@@ -88,7 +88,15 @@
     {% endblock %}
 
     <style>
-
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static 'pictures/brich and blue.jpg' %}');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 
     {% block style %}
@@ -118,10 +126,10 @@
 
 {#<h1 class="wow lightSpeedIn" id="title_it">Wall of Frustrations</h1>#}
 
-{% comment %}<div style="width: 80%" class="row">{% endcomment %}
+<div style="width: 80%" class="row">
 
 
-    {% comment %}<div id='oscuro'></div>
+    <div id='oscuro'></div>
 
     <nav id='menu-lateral' role='navigation'>
         <ul class='menu'>
@@ -153,43 +161,7 @@
 
 
         <!--FIN CONTENIDO CONTENIDO -->
-    </main>{% endcomment %}
-
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand text-light" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active text-light" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link text-light" href="#">Features</a>
-      <a class="nav-item nav-link text-light" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled text-light" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </main>
 
     <br>
     <br>
@@ -205,7 +177,7 @@
         {% endblock %}
 
     </div>
-{% comment %}</div>{% endcomment %}
+</div>
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
