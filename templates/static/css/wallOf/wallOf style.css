@@ -61,6 +61,7 @@ textarea {
 label {
     font-style: italic;
     font-weight: bold;
+    color: white;
 }
 
 .success_it {
@@ -101,6 +102,11 @@ label {
 
 #chars {
     padding-left: 8%;
+    color: white;
+}
+
+#char-String{
+    color: white;
 }
 
 .count-chars {
