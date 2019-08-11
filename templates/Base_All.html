@@ -6,39 +6,42 @@
     <title>{% block title %} {% endblock %}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
-<div>
-    {#    faveicons#}
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'favicon/apple-touch-icon-57x57.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href=" {% static 'favicon/apple-touch-icon-114x114.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'favicon/apple-touch-icon-72x72.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{% static 'favicon/apple-touch-icon-144x144.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{% static 'favicon/apple-touch-icon-60x60.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120"
-          href="{% static 'favicon/apple-touch-icon-120x120.png' %} "/>
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{% static 'favicon/apple-touch-icon-76x76.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152"
-          href="{% static 'favicon/apple-touch-icon-152x152.png' %}"/>
-    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-196x196.png' %}" sizes="196x196"/>
-    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96"/>
-    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-32x32.png' %}" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-16x16.png' %}" sizes="16x16"/>
-    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-128.png' %}" sizes="128x128"/>
+    <div>
+        {#    faveicons#}
+        <link rel="apple-touch-icon-precomposed" sizes="57x57"
+              href="{% static 'favicon/apple-touch-icon-57x57.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114"
+              href=" {% static 'favicon/apple-touch-icon-114x114.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="72x72"
+              href="{% static 'favicon/apple-touch-icon-72x72.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144"
+              href="{% static 'favicon/apple-touch-icon-144x144.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="60x60"
+              href="{% static 'favicon/apple-touch-icon-60x60.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="120x120"
+              href="{% static 'favicon/apple-touch-icon-120x120.png' %} "/>
+        <link rel="apple-touch-icon-precomposed" sizes="76x76"
+              href="{% static 'favicon/apple-touch-icon-76x76.png' %}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="152x152"
+              href="{% static 'favicon/apple-touch-icon-152x152.png' %}"/>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-196x196.png' %}" sizes="196x196"/>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96"/>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-32x32.png' %}" sizes="32x32"/>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-16x16.png' %}" sizes="16x16"/>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-128.png' %}" sizes="128x128"/>
 
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
-    <meta name="msapplication-square70x70logo" content="mstile-70x70.png"/>
-    <meta name="msapplication-square150x150logo" content="mstile-150x150.png"/>
-    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png"/>
-    <meta name="msapplication-square310x310logo" content="mstile-310x310.png"/>
-</div>
+        <meta name="application-name" content="&nbsp;"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF"/>
+        <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+        <meta name="msapplication-square70x70logo" content="mstile-70x70.png"/>
+        <meta name="msapplication-square150x150logo" content="mstile-150x150.png"/>
+        <meta name="msapplication-wide310x150logo" content="mstile-310x150.png"/>
+        <meta name="msapplication-square310x310logo" content="mstile-310x310.png"/>
+    </div>
 
-{% comment %}        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+    {% comment %}        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">{% endcomment %}
-
 
 
     {% comment %}  **boot**  {% endcomment %}
@@ -120,9 +123,10 @@
 {% endif %}
 
 
-<div style="width: 80%" class="row">
+{#<div style="width: 80%" class="row">#}
 
-<div>
+
+{% comment %}<div>
     <div id='oscuro'></div>
 
     <nav id='menu-lateral' role='navigation'>
@@ -156,14 +160,52 @@
 
         <!--FIN CONTENIDO CONTENIDO -->
     </main>
-</div>
+</div>{% endcomment %}
 
 
-    <br>
-    <br>
-    <br>
 
-    <div class="logo-it" style="display: block; margin: auto; width: auto; padding-left: 10%; ">
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}    <div class="logo-it" style="display: block; margin: auto; width: auto; padding-left: 10%; ">
         {% block logo %}
             <a href="{% url 'secretes' %}" class="">
                 <img src="{% static  'wall headers/wall Of Wisdom.png' %}" class="img-fluid" id="title_it"
@@ -172,8 +214,8 @@
             </a>
         {% endblock %}
 
-    </div>
-</div>
+    </div>{% endcomment %}
+{#</div>#}
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
