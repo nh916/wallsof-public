@@ -437,19 +437,6 @@ a {
     text-decoration: none;
 }
 
-@font-face {
-    font-family: wisdom;
-    src: url(templates/static/font/FRADMCN.TTF);
-
-}
-
-
-@font-face {
-    font-family: secret;
-    src: url(templates/static/font/Peace Sans Webfont.ttf);
-
-}
-
 
 
 
