@@ -114,25 +114,39 @@ label {
     margin: 0;
 }
 
+.post-card {
+    max-width: 64%;
+    min-width: 60%;
+    margin: auto;
+    display: block;
+}
+
 /*base px == 16*/
 @media (min-width: 20em) {
     /*320px*/
     /* smartphones, iPhone, portrait 480x320 phones */
     .date-it {
-        font-size: 2vw;
-    }
-
-    .posting {
         font-size: 3vw;
     }
 
+    .posting {
+        font-size: 5vw;
+    }
+
     .title-it {
-        font-size: 3.5vw;
+        font-size: 5.5vw;
     }
 
     .logo-it {
         /*padding-left: 100rem;*/
         /*margin-left: 1rem;*/
+    }
+
+    .post-card {
+        max-width: 70%;
+        min-width: 60%;
+        margin: auto;
+        display: block;
     }
 }
 
@@ -436,62 +450,6 @@ label {
 a {
     text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
