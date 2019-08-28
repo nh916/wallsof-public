@@ -13,6 +13,7 @@ class ModelPosts(models.Model):
     only_date = models.DateField(auto_now_add=True)
     up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
+    RED_FLAG = models.BooleanField(default=False)
 
     # @property
     # def vote(self):
@@ -52,6 +53,7 @@ class Modelsecrets(models.Model):
     only_date = models.DateField(auto_now_add=True)
     up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
+    RED_FLAG = models.BooleanField(default=False)
 
     # @property
     # def vote(self):
@@ -91,6 +93,7 @@ class ModelAdvice(models.Model):
     only_date = models.DateField(auto_now_add=True)
     up_vote = models.IntegerField(default=0, blank=True, null=False)
     down_vote = models.IntegerField(default=0, blank=True, null=False)
+    RED_FLAG = models.BooleanField(default=False)
 
     # @property
     # def vote(self):
