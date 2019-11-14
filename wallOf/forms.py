@@ -159,7 +159,7 @@ class FormJoy(forms.ModelForm):
                 attrs={
                     'cols': 100,
                     'rows': 10,
-                    'placeholder': 'tell me...',
+                    'placeholder': 'oh joy...',
                     'class': 'input_here form-control',
                     'id': 'main-text',
                 },
