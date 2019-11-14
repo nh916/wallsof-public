@@ -8,11 +8,13 @@ git reset --hard
 git pull
 git clean -fdx
 npm install
+
+turn off Debug mode
+
 python3 manage.py migrate
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py collectstatic
-turn off Debug mode
 
 
 
