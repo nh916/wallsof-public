@@ -25,9 +25,11 @@ SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 #######################@@@@@@@@@@!!!!!!!!!............
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['thewallsof.com']
-# ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
+else:
+    ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
 
 
 # Application definition
@@ -76,7 +78,8 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+if DEBUG:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'thewallsof',
@@ -94,19 +97,19 @@ DATABASES = {
         },
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'AugustusCaesar$thewallsof',
-#         'USER': 'AugustusCaesar',
-#         'PASSWORD': 'Lbj23Kb24',
-#         'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#     }
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'AugustusCaesar$thewallsof',
+            'USER': 'AugustusCaesar',
+            'PASSWORD': 'Lbj23Kb24',
+            'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
