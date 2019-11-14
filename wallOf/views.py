@@ -220,3 +220,69 @@ def advice_view(request):
             # return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
     return render(request, 'wallOf/advice.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
+
+
+
+
+
+def joy_view(request):
+    posts = FormJoy
+
+    # all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest', 'date_and_time')
+
+    all_ranked_by_votes = ModelJoy.objects.order_by('date_and_time')
+
+    all_ranked_by_votes = reversed(all_ranked_by_votes)
+
+    if request.method == 'POST' and not request.is_ajax():
+        try:
+            form = FormJoy(request.POST)
+            if form.is_valid():
+                form.clean()
+                form.save()
+                messages.success(request, 'Post Saved!')
+                # need to fix this part
+                # return redirect('redirect_for_secret')
+                return redirect_back(request, 'joy')
+
+        except Exception as e:
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
+            return render(request, 'wallOf/joy.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
+    if request.is_ajax() and request.method == 'POST':
+        try:
+            ajax_received = json.loads(request.body.decode('utf-8'))
+
+            if ajax_received['Name'] == 'up_voted_It':
+                current_ups = \
+                    ModelJoy.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('up_vote')[0][
+                        'up_vote']
+
+                ModelJoy.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(up_vote=current_ups + 1)
+            if ajax_received['Name'] == 'down_voted_It':
+                current_down = \
+                    ModelJoy.objects.filter(pk=(int(ajax_received['Value']) - 3669)).values('down_vote')[0][
+                        'down_vote']
+                ModelJoy.objects.filter(pk=(int(ajax_received['Value']) - 3669)).update(down_vote=current_down - 1)
+
+            response = JsonResponse({"success": "success was there"})
+            response.status_code = 200  # To announce that the user isn't allowed to publish
+            return response
+
+        except Exception as e:
+            # messages.error(request, 'Error')
+            messages.error(request, 'Error')
+            print(e)
+            print(traceback)
+            print(e.__traceback__)
+            response = JsonResponse({"success": "success was there"})
+            response.status_code = 400  # To announce that the user isn't allowed to publish
+            return response
+
+            # return render(request, 'wallOf/secret.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
+    return render(request, 'wallOf/joy.html', context={'postF': posts, 'all': all_ranked_by_votes})

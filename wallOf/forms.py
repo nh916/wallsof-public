@@ -140,3 +140,36 @@ class advice(forms.ModelForm):
 #                 },
 #             ),
 #         }
+
+
+
+
+
+class FormJoy(forms.ModelForm):
+    class Meta:
+        model = ModelJoy
+        fields = [
+            'title',
+            'joy'
+            # 'vote',
+            # 'date',
+        ]
+        widgets = {
+            'joy': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 10,
+                    'placeholder': 'tell me...',
+                    'class': 'input_here form-control',
+                    'id': 'main-text',
+                },
+            ),
+            'title': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 2,
+                    'placeholder': 'optional',
+                    'class': 'input_here form-control',
+                }
+            )
+        }

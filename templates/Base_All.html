@@ -245,55 +245,57 @@
     {% if posts.RED_FLAG != True %}
 
 
-    <div class="row">
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="col-12 col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-11" style="">
+        <div class="row">
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="col-12 col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-11" style="">
 
 
-                {% block if_block %}
+                    {% block if_block %}
 
-                {% endblock %}
+                    {% endblock %}
 
 
-                <div class="card text-white post-card {% block card_color %} bg-danger {% endblock %} mb-3 wow
+                    <div class="card text-white post-card {% block card_color %} {% endblock %} mb-3 wow
                     {% block animate %}fadeInRight {% endblock %}
-                     title="{% block card_title %} Post {% endblock %}">
+                     title="{% block card_title %} Post {% endblock %}
+                         style="{% block extra_card_style %} background-color: green{% endblock %}; color: ">
 
 
-                    <div class="card-body" style="{% block extra_post_style %} {% endblock %};">
+                        <div class="card-body" style="{% block extra_post_style %} {% endblock %};">
 
-                        {% if posts.title == None %}
+                            {% if posts.title == None %}
 
-                        {% else %}
-                            <bold>
+                            {% else %}
+                                <bold>
                                 <span class="card-title title-it"
                                       style="font-weight: bolder">{{ posts.title }}</span>
-                            </bold>
-                        {% endif %}
+                                </bold>
+                            {% endif %}
 
-                        <p class="card-text posting">{% block postings %} {% endblock %}</p>
-                        <span class="date-it">{{ posts.date_and_time }}</span>
-
-
-                        <p class="vote-class" id="{{ posts.salted_pk }}">{{ posts.vote }}</p>
+                            <p class="card-text posting">{% block postings %} {% endblock %}</p>
+                            <span class="date-it">{{ posts.date_and_time }}</span>
 
 
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-
-                            {% csrf_token %}
-                            <div class="btn {% block up_btn_color %} btn-primary {% endblock %}">
-                                <button type="submit" title="up vote" name="up_voted_It"
-                                        value={{ posts.salted_pk }} class="" style="size: 9rem"
-                                        onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-up"></i>
-                                </button>
-                            </div>
+                            <p class="vote-class" id="{{ posts.salted_pk }}">{{ posts.vote }}</p>
 
 
-                            <div class="btn {% block down_btn_color %} btn-dark {% endblock %}">
-                                <button type="submit" name="down_voted_It" title="down vote"
-                                        value={{ posts.salted_pk }} class=""
-                                        onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-down"></i>
-                                </button>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                                {% csrf_token %}
+                                <div class="btn {% block up_btn_color %} btn-primary {% endblock %}">
+                                    <button type="submit" title="up vote" name="up_voted_It"
+                                            value={{ posts.salted_pk }} class="" style="size: 9rem"
+                                            onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-up"></i>
+                                    </button>
+                                </div>
+
+
+                                <div class="btn {% block down_btn_color %} btn-dark {% endblock %}">
+                                    <button type="submit" name="down_voted_It" title="down vote"
+                                            value={{ posts.salted_pk }} class=""
+                                            onclick="vote_here(this.name, this.value)"><i class="fas fa-arrow-down"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -321,9 +323,10 @@
                 </div>
             </div>
         </div>
-    </div>
+        {#        </div>#}
 
-    <br>
+
+        <br>
     {% endif %}
 {% endfor %}
 

@@ -11,6 +11,8 @@ urlpatterns = [
     path('redirected/', WallOf_Views.redirect_back, name='redirect_back'),
     path('wisdom/', WallOf_Views.advice_view, name='wisdom'),
 
+    path('joy/', WallOf_Views.joy_view, name='joy'),
+
     # path('happiness', WallOf_Views.happiness, name='happiness')
 
     # path('', WallOfViews.index, name='index.html'),

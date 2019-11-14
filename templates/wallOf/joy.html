@@ -1,0 +1,67 @@
+{% extends 'Base_All.html' %}
+{% load static %}
+
+{% block title %}Wall Of Joy {% endblock %}
+
+
+{% block extra_head_at_end %}
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+
+        textarea {
+            background-color: #343A40;
+            color: white;
+            font-size: medium;
+        }
+
+        .input_here {
+            background-color: orangered;
+            {#background-color: green;#}
+        }
+
+    </style>
+
+{% endblock %}
+
+
+
+
+
+
+{% block logo %}
+{#    <a href="{% url 'secretes' %}" title="wall of secretes">#}
+        <img src="{% static  'wall headers/wall-of-joys-yellow.png' %}" class="img-fluid" id="title_it"
+             alt="wall of secretes"
+             style="min-height: 3rem; max-height: 7rem;" title="FUCK yeah!!!!!!!">
+{#    </a>#}
+    <br>
+    <br>
+
+{% endblock %}
+
+
+
+{% block if_block %}
+
+{% endblock %}
+
+{% block postings %}{{ posts.joy }} {% endblock %}
+
+{% block card_color %}  {% endblock %}
+
+{% block extra_card_style %} background-color: red{% endblock %}
+
+{#{% block extra_card_style %} background-color: #41FF21{% endblock %}#}
+
+{% block card_title %} YAY!!!!!!!!!! {% endblock %}
+
+{#{% block animate %} slideInUp {% endblock %}#}
+{% block animate %} fadeInDownBig {% endblock %}
+
+{% block body %}
+
+{% endblock %}
