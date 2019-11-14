@@ -6,7 +6,7 @@ urlpatterns = [
     re_path(r'secrets?/$(?i)', WallOf_Views.secretView, name='secrets'),
 
     path('frustrations/', WallOf_Views.frustrations, name='frustrations'),
-    path('', WallOf_Views.frustrations, name='index.html'),
+    path('', WallOf_Views.joy_view, name='index.html'),
 
     path('redirected/', WallOf_Views.redirect_back, name='redirect_back'),
     path('wisdom/', WallOf_Views.advice_view, name='wisdom'),

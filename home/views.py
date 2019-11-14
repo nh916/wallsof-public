@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-
+# wall for emil
 def emil(request):
     return render(request, 'pong.html')
 
