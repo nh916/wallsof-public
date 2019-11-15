@@ -77,7 +77,7 @@ class secrets(forms.ModelForm):
                 attrs={
                     'cols': 100,
                     'rows': 10,
-                    'placeholder': 'tell me...',
+                    'placeholder': 'do tell ...',
                     'class': 'input_here form-control',
                     'id': 'main-text',
                 },
