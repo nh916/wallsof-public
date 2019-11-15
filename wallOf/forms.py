@@ -142,9 +142,6 @@ class advice(forms.ModelForm):
 #         }
 
 
-
-
-
 class FormJoy(forms.ModelForm):
     class Meta:
         model = ModelJoy
