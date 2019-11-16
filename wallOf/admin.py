@@ -7,4 +7,4 @@ from wallOf.models import *
 admin.site.register(ModelPosts)
 admin.site.register(Modelsecrets)
 admin.site.register(ModelAdvice)
-# admin.site.register(ModelComment)
+admin.site.register(ModelJoy)
