@@ -175,7 +175,7 @@ class ModelJoy(models.Model):
 
     def __str__(self):
         if self.title is None:
-            return self.frustration
+            return self.joy
 
         else:
             return self.title
