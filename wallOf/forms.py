@@ -22,7 +22,7 @@ class Posts(forms.ModelForm):
                 attrs={
                     'cols': 100,
                     'rows': 10,
-                    'placeholder': 'how was your day',
+                    'placeholder': 'tell me about it...',
                     'class': 'input_here form-control',
                     'id': 'main-text',
                 },
