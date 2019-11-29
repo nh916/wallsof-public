@@ -287,8 +287,6 @@ def joy_view(request):
 def spam_view(request):
     posts = FormSpam
 
-    # all_ranked_by_votes = Modelsecrets.objects.annotate(biggest=F('up_vote') + F('down_vote')).order_by('biggest', 'date_and_time')
-
     all_ranked_by_votes = ModelSpam.objects.order_by('date_and_time')
 
     all_ranked_by_votes = reversed(all_ranked_by_votes)
@@ -300,8 +298,6 @@ def spam_view(request):
                 form.clean()
                 form.save()
                 messages.success(request, 'Post Saved!')
-                # need to fix this part
-                # return redirect('redirect_for_secret')
                 return redirect_back(request, 'spam')
 
         except Exception as e:
