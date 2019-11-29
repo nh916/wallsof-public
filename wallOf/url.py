@@ -3,18 +3,19 @@ from wallOf import views as WallOf_Views
 
 
 urlpatterns = [
+    path('', WallOf_Views.spam_view, name='index.html'),
+
     re_path(r'secrets?/$(?i)', WallOf_Views.secretView, name='secrets'),
 
     path('frustrations/', WallOf_Views.frustrations, name='frustrations'),
-    path('', WallOf_Views.joy_view, name='index.html'),
 
     path('redirected/', WallOf_Views.redirect_back, name='redirect_back'),
+
     path('wisdom/', WallOf_Views.advice_view, name='wisdom'),
 
     path('joy/', WallOf_Views.joy_view, name='joy'),
 
-    # path('happiness', WallOf_Views.happiness, name='happiness')
+    path('spam/', WallOf_Views.spam_view, name='spam')
 
-    # path('', WallOfViews.index, name='index.html'),
-    # path('', WallOfViews.create_post.as_view(), name='index.html'),
+    # path('happiness', WallOf_Views.happiness, name='happiness')
 ]

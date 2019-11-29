@@ -170,3 +170,31 @@ class FormJoy(forms.ModelForm):
                 }
             )
         }
+
+
+class FormSpam(forms.ModelForm):
+    class Meta:
+        model = ModelSpam
+        fields = [
+            'title',
+            'spam'
+        ]
+        widgets = {
+            'spam': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 10,
+                    'placeholder': 'come on spam me... I DARE YOU!!!!',
+                    'class': 'input_here form-control',
+                    'id': 'main-text',
+                },
+            ),
+            'title': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 2,
+                    'placeholder': 'optional',
+                    'class': 'input_here form-control',
+                }
+            )
+        }

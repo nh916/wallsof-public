@@ -1,0 +1,59 @@
+{% extends 'Base_All.html' %}
+{% load static %}
+
+{% block title %}Wall Of Spam {% endblock %}
+
+
+{% block extra_head_at_end %}
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        .input_here {
+            background-color: orangered;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+
+
+
+
+{% block logo %}
+    {#    <a href="{% url 'secretes' %}" title="wall of secretes">#}
+    <img src="{% static  'wall headers/wall of secrets.png' %}" class="img-fluid" id="title_it"
+         alt="wall of secretes"
+         style="min-height: 3rem; max-height: 7rem;" title="spam it up!!!!!!">
+    {#    </a>#}
+    <br>
+    <br>
+
+{% endblock %}
+
+
+
+{% block if_block %}
+
+{% endblock %}
+
+{% block postings %}{{ posts.spam }} {% endblock %}
+
+{% block card_color %}  {% endblock %}
+
+{% block extra_card_style %} background-color: #FFEA18 {% endblock %}
+
+{% block extra_post_style %}color: green {% endblock %}
+
+{% block card_title %} dont tell anyone...its a secrete! {% endblock %}
+
+
+{% block animate %} bounceIn {% endblock %}
+
+{% block body %}
+
+{% endblock %}
