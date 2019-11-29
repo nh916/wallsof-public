@@ -215,7 +215,7 @@ class ModelSpam(models.Model):
 
     def __str__(self):
         if self.title is None:
-            return self.joy
+            return self.spam
 
         else:
             return self.title
