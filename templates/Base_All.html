@@ -89,26 +89,29 @@
     {# fonts #}
     <link href="https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    {% block default_styles %}
+        <style>
+            body {
+                background-image: url('{% static 'pictures/middle-min.jpg' %}');
+                background-size: contain;
+            }
+
+            @font-face {
+                font-family: wisdom;
+                src: url({% static 'font/FRADMCN.TTF' %});
+            }
 
 
-    <style>
-        body {
-            background-image: url('{% static 'pictures/middle-min.jpg' %}');
-            background-size: contain;
-        }
+            @font-face {
+                font-family: secret;
+                src: url({% static 'font/Peace Sans Webfont.ttf' %});
+            }
 
-        @font-face {
-            font-family: wisdom;
-            src: url({% static 'font/FRADMCN.TTF' %});
-        }
+        </style>
+    {% endblock %}
 
-
-        @font-face {
-            font-family: secret;
-            src: url({% static 'font/Peace Sans Webfont.ttf' %});
-        }
-
-    </style>
 
     {% block style %}
 
@@ -194,14 +197,19 @@
                style="color: #F15A24; font-size: 150%; font-family: 'Londrina Solid', cursive; letter-spacing: 0.154rem;"
                href="{% url 'frustrations' %}">Walls Of Frustrations</a>
 
-            <a class="nav-item nav-link "
+{% comment %}            <a class="nav-item nav-link "
                style="color: #FF05F2; font-size: 150%; font-family:'Londrina Solid', cursive; letter-spacing: 0.154rem;"
-               href="{% url 'secrets' %}">Walls Of Secrets</a>
+               href="{% url 'secrets' %}">Walls Of Secrets</a>{% endcomment %}
 
             <a class="nav-item nav-link "
                style="color: #C10DE8; font-size: 150%; font-family: 'Londrina Solid', cursive; letter-spacing: 0.154rem;"
                href="{% url 'wisdom' %}"
                tabindex="-1" aria-disabled="true">Walls Of Wisdom</a>
+
+            <a class="nav-item nav-link "
+               style="color: #FFFA00; font-size: 150%; font-family: 'Lobster', cursive; letter-spacing: 0.154rem;"
+               href="{% url 'spam' %}"
+               tabindex="-1" aria-disabled="true">Walls Of Spam</a>
 
         </div>
     </div>
@@ -264,7 +272,7 @@
                     <div class="card text-white post-card {% block card_color %} {% endblock %} mb-3 wow
                     {% block animate %}fadeInRight {% endblock %}
                      title="{% block card_title %} Post {% endblock %}
-{#                    todo delete the extra color there later#}
+                            {#                    todo delete the extra color there later#}
                          style="{% block extra_card_style %} background-color: green{% endblock %}; color: ">
 
 

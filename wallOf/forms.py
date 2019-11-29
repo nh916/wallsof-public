@@ -184,7 +184,7 @@ class FormSpam(forms.ModelForm):
                 attrs={
                     'cols': 100,
                     'rows': 10,
-                    'placeholder': 'come on spam me... I DARE YOU!!!!',
+                    'placeholder': 'come on spam me...',
                     'class': 'input_here form-control',
                     'id': 'main-text',
                 },
