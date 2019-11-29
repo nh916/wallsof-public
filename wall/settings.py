@@ -25,11 +25,23 @@ SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 #######################@@@@@@@@@@!!!!!!!!!............
 DEBUG = True
 
+
+
+
+
+
 if DEBUG:
     ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['thewallsof.com']
 else:
     ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
+
+
+
+
+
+
+
 
 
 # Application definition
@@ -78,6 +90,14 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
+
+
+
+
+
+
 if DEBUG:
     DATABASES = {
     'default': {
@@ -110,6 +130,15 @@ else:
             },
         }
     }
+
+
+
+
+
+
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
