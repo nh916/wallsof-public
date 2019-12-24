@@ -1,8 +1,9 @@
+asgiref==3.2.3
 asn1crypto==0.24.0
 bcrypt==3.1.7
 cffi==1.12.3
 cryptography==2.7
-Django==2.2.7
+Django==3.0.1
 django-appconf==1.0.3
 django-compressor==2.3
 django-mysql==3.2.0

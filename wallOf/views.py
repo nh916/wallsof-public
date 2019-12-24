@@ -292,7 +292,14 @@ def spam_view(request):
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
     if request.method == 'POST' and not request.is_ajax():
+
+        # for spammers
+        if 'adult' in request.POST.get('spam').lower() or 'adult' in request.POST.get('title').lower():
+            messages.error(request, 'suck on that!')
+            return render(request, 'wallOf/spam.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
         try:
+            print(request.POST.get('spam'))
             form = FormSpam(request.POST)
             if form.is_valid():
                 form.clean()
