@@ -1,8 +1,7 @@
 from django.contrib import admin
 from wallOf.models import *
 
-# Register your models here.
-
+admin.site.site_header = 'thewallsof.com'
 
 admin.site.register(ModelPosts)
 admin.site.register(Modelsecrets)
