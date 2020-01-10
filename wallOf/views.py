@@ -1,4 +1,5 @@
 import json
+import re
 import traceback
 
 from django.contrib import messages
@@ -294,7 +295,12 @@ def spam_view(request):
     if request.method == 'POST' and not request.is_ajax():
 
         # for spammers
-        if 'adult' in request.POST.get('spam').lower() or 'adult' in request.POST.get('title').lower():
+        spam_words = ['adult', 'dat', 'sex', 'porn', 'girl', 'couple']
+        spam_title = request.POST.get('title').lower()
+        spam_body = request.POST.get('spam').lower()
+
+        if re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_title) \
+                or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
             messages.error(request, 'suck on that!')
             return render(request, 'wallOf/spam.html', context={'postF': posts, 'all': all_ranked_by_votes})
 
