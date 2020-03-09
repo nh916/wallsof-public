@@ -295,7 +295,7 @@ def spam_view(request):
     if request.method == 'POST' and not request.is_ajax():
 
         # for spammers
-        spam_words = ['adult', 'dat', 'sex', 'porn', 'girl', 'couple', 'women', 'woman']
+        spam_words = ['adult', 'dat', 'sex', 'porn', 'girl', 'couple', 'wom', ]
         spam_title = request.POST.get('title').lower()
         spam_body = request.POST.get('spam').lower()
 
