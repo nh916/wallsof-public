@@ -295,9 +295,10 @@ def spam_view(request):
     if request.method == 'POST' and not request.is_ajax():
 
         # for spammers
-        spam_words = ['adult', 'dat', 'sex', 'porn', 'girl', 'couple', 'wom', ]
-        spam_title = request.POST.get('title').lower()
-        spam_body = request.POST.get('spam').lower()
+        spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
+                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman']
+        spam_title = request.POST.get('title')
+        spam_body = request.POST.get('spam')
 
         if re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_title) \
                 or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
