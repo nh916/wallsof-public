@@ -296,7 +296,8 @@ def spam_view(request):
 
         # for spammers
         spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
-                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman']
+                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
+
         spam_title = request.POST.get('title')
         spam_body = request.POST.get('spam')
 
