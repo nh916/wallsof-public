@@ -91,6 +91,7 @@
     <link href="https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
 
     {% block default_styles %}
         <style>
@@ -189,6 +190,11 @@
         <div class="navbar-nav">
             {#      <a class="nav-item nav-link text-white active" href="#">Home <span class="sr-only">(current)</span></a>#}
 
+            <a class="nav-item nav-link "
+               style="color: #FFFA00; font-size: 150%; font-family: 'Lobster', cursive; letter-spacing: 0.154rem;"
+               href="{% url 'spam' %}"
+               tabindex="-1" aria-disabled="true">Walls Of Spam</a>
+
             <a class="nav-item nav-link"
                style="color: #FFF223; font-size: 150%; font-family: 'Staatliches', cursive; letter-spacing: 0.154rem;
                     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;"
@@ -208,14 +214,9 @@
                tabindex="-1" aria-disabled="true">Walls Of Wisdom</a>
 
             <a class="nav-item nav-link "
-               style="color: #FFFA00; font-size: 150%; font-family: 'Lobster', cursive; letter-spacing: 0.154rem;"
-               href="{% url 'spam' %}"
-               tabindex="-1" aria-disabled="true">Walls Of Spam</a>
-
-            <a class="nav-item nav-link "
-               style="color: #FFFA00; font-size: 150%; font-family: 'Lobster', cursive; letter-spacing: 0.154rem;"
+               style="color: #b9b353; font-size: 150%; font-family: 'Graduate', cursive; letter-spacing: 0.154rem;"
                href="{% url 'congrats' %}"
-               tabindex="-1" aria-disabled="true">Congrats 2020 Graduates!!!</a>
+               tabindex="-1" aria-disabled="true">class of 2020 Graduates</a>
 
         </div>
     </div>

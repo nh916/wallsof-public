@@ -1,7 +1,7 @@
 {% extends 'Base_All.html' %}
 {% load static %}
 
-{% block title %}Congratulations Class of 2020! {% endblock %}
+{% block title %}Congratulations Class of 2020!{% endblock %}
 
 
 {% block extra_head_at_end %}
@@ -20,8 +20,7 @@
         }
 
         .input_here {
-            background-color: #b9b353;
-        {#background-color: green;#}
+        {#background-color: #b9b353;#}{#background-color: #9b1c31;#} background-color: #9f3748;
         }
 
         #title {
@@ -38,9 +37,10 @@
 
         #class-2020-title {
             font-family: 'Graduate', cursive;
-            color: #9b1c31;
-            text-decoration: none;
+            color: #b9b353;
+        {#color: white;#} text-decoration: none;
             font-weight: bold;
+        {#stroke: red;#}
         }
     </style>
 
@@ -53,10 +53,9 @@
 
 {% block logo %}
     <a href="{% url 'congrats' %}" title="wall of class 2020">
-        {% comment %}        <img src="{% static  'wall headers/wall-of-joys-yellow.png' %}" class="img-fluid" id="title_it"
+        <img src="{% static  'wall headers/wall-of-class-2020.png' %}" class="img-fluid" id="title_it"
              alt="wall of graduates"
-             style="min-height: 3rem; max-height: 7rem;" title="FUCK yeah!!!!!!!">{% endcomment %}
-        <h1 id="class-2020-title">Wall of class 2020</h1>
+             style="min-height: 3rem; max-height: 7rem;" title="Congrats Graduates!!!">
     </a>
     <br>
     <br>
@@ -65,14 +64,14 @@
 
 
 {% block body_at_beginning %}
-    <audio src="{% static 'audio/Graduation_March.mp3' %}"></audio>
+    <audio id="graduation-music" src="{% static 'audio/Graduation_March.mp3' %}"></audio>
 
     {% comment %}    <a href="" onclick="graduationMusic(); return false;"
        style="background-color: #b9b353; color: green; height: 10px; width: 1rem; padding: 1rem; margin: 2rem">
         <i id="graduation-music-control" class="fas fa-play" onclick="graduationMusic(); return false;"></i>
     </a>{% endcomment %}
     <button class="btn btn-dark" onclick="graduationMusic(); return false;" style=""> Graduation Music
-        <i id="graduation-music-control" class="fas fa-play" style="color: "></i>
+        <i id="graduation-music-control" class="fas fa-play" style=""></i>
     </button>
 {% endblock %}
 
@@ -94,9 +93,42 @@
 
 {% block body %}
     <script>
-        const audio = new Audio("{% static '/audio/Graduation_March.mp3'%}");
+        {#const audio = new Audio("{% static '/audio/Graduation_March.mp3'%}");#}
 
-        function graduationMusic() {
+        {% comment %}function graduationMusic() {
+            var playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    let isPlaying = audio.currentTime > 0
+                        && !audio.paused
+                        && !audio.ended
+                        && audio.readyState > 2;
+
+                    if (!isPlaying) {
+                        audio.play();
+
+                        const graduationMusicElement = document.getElementById("graduation-music-control");
+                        graduationMusicElement.classList.remove("fa-play");
+                        graduationMusicElement.classList.add("fa-pause");
+                    } else {
+                        audio.pause();
+
+                        const graduationMusicElement = document.getElementById("graduation-music-control");
+                        graduationMusicElement.classList.remove("fa-pause");
+                        graduationMusicElement.classList.add("fa-play");
+                    }
+                })
+
+                    .catch(error => {
+                        console.error("music could not load");
+                        alert('music could not load :(');
+                    });
+            }
+        }{% endcomment %}
+
+
+        {% comment %}function graduationMusic() {
 
             if (audio !== undefined) {
 
@@ -119,14 +151,35 @@
                     graduationMusicElement.classList.add("fa-play");
                 }
             }
+        }{% endcomment %}
+
+
+        async function graduationMusic() {
+            const audio = document.getElementById('graduation-music');
+            try {
+                if (audio.paused) {
+                    await audio.play();
+                    showPlaying();
+                }
+                else {
+                    await audio.pause();
+                    showPaused()
+                }
+
+            } catch (error) {
+                console.log('Graduation music could not load :(');
+                alert('Graduation music could not load :(');
+            }
         }
 
+        {#shows the play symbol the user knows if he clicks itll play#}
         function showPaused() {
             const graduationMusicElement = document.getElementById("graduation-music-control");
             graduationMusicElement.classList.remove("fa-pause");
             graduationMusicElement.classList.add("fa-play");
         }
 
+        {#shows the pause symbol the user knows if he clicks itll pause#}
         function showPlaying() {
             const graduationMusicElement = document.getElementById("graduation-music-control");
             graduationMusicElement.classList.remove("fa-play");
