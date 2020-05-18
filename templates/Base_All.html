@@ -57,7 +57,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -211,6 +212,11 @@
                href="{% url 'spam' %}"
                tabindex="-1" aria-disabled="true">Walls Of Spam</a>
 
+            <a class="nav-item nav-link "
+               style="color: #FFFA00; font-size: 150%; font-family: 'Lobster', cursive; letter-spacing: 0.154rem;"
+               href="{% url 'congrats' %}"
+               tabindex="-1" aria-disabled="true">Congrats 2020 Graduates!!!</a>
+
         </div>
     </div>
 </nav>
@@ -228,6 +234,9 @@
 </div>
 
 {#</div>#}
+
+
+{% block body_at_beginning %} {% endblock %}
 
 
 <div class="form-group container-fluid wow fadeInRight" style="padding: 1rem;">
@@ -269,11 +278,11 @@
                     {% endblock %}
 
 
-                    <div class="card text-white post-card {% block card_color %} {% endblock %} mb-3 wow
+                    <div class="card text-white post-card {% block card_color %} {% endblock %} mb-3 wow"
                     {% block animate %}fadeInRight {% endblock %}
-                     title="{% block card_title %} Post {% endblock %}
+                     title="{% block card_title %} Post {% endblock %}"
                             {#                    todo delete the extra color there later#}
-                         style="{% block extra_card_style %} background-color: green{% endblock %}; color: ">
+                         style="{% block extra_card_style %}background-color: green{% endblock %};">
 
 
                         <div class="card-body" style="{% block extra_post_style %} {% endblock %};">

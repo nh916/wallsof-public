@@ -198,3 +198,32 @@ class FormSpam(forms.ModelForm):
                 }
             )
         }
+
+
+class FormGraduation(forms.ModelForm):
+    class Meta:
+        model = ModelGraduation
+        fields = [
+            'title',
+            'memory'
+        ]
+        widgets = {
+            'memory': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 10,
+                    'placeholder': '',
+                    'class': 'input_here form-control',
+                    'id': 'main-text'
+                },
+            ),
+            'title': Textarea(
+                attrs={
+                    'cols': 100,
+                    'rows': 2,
+                    'placeholder': 'optional',
+                    'class': 'input_here form-control',
+                    'id': 'title'
+                }
+            )
+        }

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
 body {
     overflow-x: hidden;
@@ -119,6 +119,12 @@ label {
     min-width: 60%;
     margin: auto;
     display: block;
+}
+
+#class-2020-title {
+    font-family: 'Graduate', cursive;
+    color: #b9b353;
+    text-decoration: none;
 }
 
 /*base px == 16*/
@@ -450,7 +456,6 @@ label {
 a {
     text-decoration: none;
 }
-
 
 
 /*

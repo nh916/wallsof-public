@@ -15,7 +15,9 @@ urlpatterns = [
 
     path('joy/', WallOf_Views.joy_view, name='joy'),
 
-    path('spam/', WallOf_Views.spam_view, name='spam')
+    path('spam/', WallOf_Views.spam_view, name='spam'),
+
+    path('congrats/', WallOf_Views.graduation_view, name='congrats'),
 
     # path('happiness', WallOf_Views.happiness, name='happiness')
 ]
