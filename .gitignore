@@ -6,5 +6,5 @@ db.sqlite3
 venv/
 .idea
 node_modules
-
+db-backup.sql
 
