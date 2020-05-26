@@ -367,6 +367,22 @@ def graduation_view(request):
     all_ranked_by_votes = reversed(all_ranked_by_votes)
 
     if request.method == 'POST' and not request.is_ajax():
+
+
+        # for spammers
+        spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
+                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
+
+        spam_title = request.POST.get('title')
+        spam_body = request.POST.get('spam')
+
+        if re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_title) \
+                or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
+            messages.error(request, 'suck on that!')
+            return render(request, 'wallOf/spam.html', context={'postF': posts, 'all': all_ranked_by_votes})
+
+
+
         try:
             form = FormGraduation(request.POST)
             if form.is_valid():

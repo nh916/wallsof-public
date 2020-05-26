@@ -23,8 +23,8 @@ SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #######################@@@@@@@@@@!!!!!!!!!............
-DEBUG = True
-PRODUCTION_MODE = False
+DEBUG = False
+PRODUCTION_MODE = True
 
 
 
