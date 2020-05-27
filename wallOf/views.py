@@ -374,7 +374,7 @@ def graduation_view(request):
                       'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
 
         spam_title = request.POST.get('title')
-        spam_body = request.POST.get('spam')
+        spam_body = request.POST.get('memory')
 
         if re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_title) \
                 or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
