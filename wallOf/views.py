@@ -379,7 +379,7 @@ def graduation_view(request):
         if re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_title) \
                 or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
             messages.error(request, 'suck on that!')
-            return render(request, 'wallOf/spam.html', context={'postF': posts, 'all': all_ranked_by_votes})
+            return redirect('spam')
 
 
 
