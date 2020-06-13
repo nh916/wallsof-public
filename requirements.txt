@@ -5,15 +5,15 @@ bcrypt==3.1.7
 cffi==1.14.0
 cryptography==2.9.2
 distlib==0.3.0
-Django==3.0.6
+Django==3.0.7
 django-appconf==1.0.4
 django-compressor==2.4
-django-mysql==3.5.0
+django-mysql==3.6.0
 fabric==2.5.0
 filelock==3.0.12
-importlib-metadata==1.6.0
+importlib-metadata==1.6.1
 invoke==1.4.1
-#mysqlclient @ file:///C:/Users/navid/Downloads/mysqlclient-1.4.6-cp37-cp37m-win32.whl
+# mysqlclient @ file:///C:/Users/navid/Downloads/mysqlclient-1.4.6-cp37-cp37m-win32.whl
 paramiko==2.7.1
 posts==0.2.2
 psycopg2==2.8.5
@@ -24,5 +24,5 @@ rcssmin==1.0.6
 rjsmin==1.1.0
 six==1.15.0
 sqlparse==0.3.1
-virtualenv==20.0.21
+virtualenv==20.0.23
 zipp==3.1.0
