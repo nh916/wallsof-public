@@ -4,8 +4,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
-DEBUG = False
-PRODUCTION_MODE = True
+DEBUG = True
+PRODUCTION_MODE = False
 
 if not PRODUCTION_MODE:
     ALLOWED_HOSTS = []
@@ -56,43 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wall.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-
-if not PRODUCTION_MODE:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'thewallsof',
-            'USER': 'root',
-            # 'NAME': 'my_db',
-            # 'USER': 'postgres',
-            # 'PASSWORD': '@CPaxAugusta24',
-            'HOST': '127.0.0.1',
-            # 'PORT': '5432',
-
-            # 'PORT': '3306',
-
-            'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            },
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'AugustusCaesar$thewallsof',
-            'USER': 'AugustusCaesar',
-            'PASSWORD': 'Lbj23Kb24',
-            'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
-            'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            },
-        }
-    }
-
 #     psql Database
 postgresql_database = {
     'default': {
@@ -105,12 +68,54 @@ postgresql_database = {
     }
 }
 
+#    sqlite database
 sqlite_database = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+my_local_mysqlite_database = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'thewallsof',
+        'USER': 'root',
+        # 'NAME': 'my_db',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '@CPaxAugusta24',
+        'HOST': '127.0.0.1',
+        # 'PORT': '5432',
+
+        # 'PORT': '3306',
+
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
+
+online_database = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AugustusCaesar$thewallsof',
+        'USER': 'AugustusCaesar',
+        'PASSWORD': 'Lbj23Kb24',
+        'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
+
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+
+if not PRODUCTION_MODE:
+    DATABASES = sqlite_database
+else:
+    DATABASES = online_database
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
