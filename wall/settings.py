@@ -1,15 +1,21 @@
 import os
+from pathlib import Path
+
+from decouple import Config, RepositoryEnv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
-DEBUG = True
-PRODUCTION_MODE = False
+DOTENV_FILE = Path('..') / '.env'
+env_config = Config(RepositoryEnv(DOTENV_FILE))
+
+SECRET_KEY = env_config.get("SECRET_KEY")
+DEBUG = env_config.get("DEBUG", cast=bool)
+
+PRODUCTION_MODE = env_config.get("PRODUCTION_MODE", cast=bool)
 
 if not PRODUCTION_MODE:
     ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['thewallsof.com']
 else:
     ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
 
@@ -60,11 +66,11 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 postgresql_database = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'env_file',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': env_config.get("PSQL_NAME"),
+        'USER': env_config.get("PSQL_USER"),
+        'PASSWORD': env_config.get("PSQL_PASSWORD"),
+        'HOST': env_config.get("PSQL_HOST"),
+        'PORT': env_config.get("PSQL_PORT"),
     }
 }
 
@@ -79,14 +85,9 @@ sqlite_database = {
 my_local_mysqlite_database = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'thewallsof',
-        'USER': 'root',
-        # 'NAME': 'my_db',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '@CPaxAugusta24',
-        'HOST': '127.0.0.1',
-        # 'PORT': '5432',
-
+        'NAME': env_config.get("MYSQL_NAME"),
+        'USER': env_config.get("MYSQL_USER"),
+        'HOST': env_config.get("MYSQL_HOST"),
         # 'PORT': '3306',
 
         'OPTIONS': {
@@ -98,10 +99,10 @@ my_local_mysqlite_database = {
 online_database = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'AugustusCaesar$thewallsof',
-        'USER': 'AugustusCaesar',
-        'PASSWORD': 'Lbj23Kb24',
-        'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
+        'NAME': env_config.get("PYTHON_ANYWHERE_MYSQL_NAME"),
+        'USER': env_config.get("PYTHON_ANYWHERE_MYSQL_USER"),
+        'PASSWORD': env_config.get("PYTHON_ANYWHERE_MYSQL_PASSWORD"),
+        'HOST': env_config.get("PYTHON_ANYWHERE_MYSQL_HOST"),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
@@ -113,7 +114,7 @@ online_database = {
 
 
 if not PRODUCTION_MODE:
-    DATABASES = sqlite_database
+    DATABASES = my_local_mysqlite_database
 else:
     DATABASES = online_database
 

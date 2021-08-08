@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:1.21.1-alpine
+
+    ports:
+      - "443:443"
+      - "80:80"
+
+  django:
+    build: ./Dockerfile
+
+    volumes:
+      -
+
+    ports:
+      - "800:800"
+
+  postgres:
+    image: postgres:13.3-buster
+
+    volumes:
+      -
+    ports:
+          - "5432:5432"

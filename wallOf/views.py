@@ -3,7 +3,6 @@ import re
 import traceback
 
 from django.contrib import messages
-from django.db.models import F
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -368,7 +367,6 @@ def graduation_view(request):
 
     if request.method == 'POST' and not request.is_ajax():
 
-
         # for spammers
         spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
                       'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
@@ -380,8 +378,6 @@ def graduation_view(request):
                 or re.compile('|'.join(spam_words), re.IGNORECASE).search(spam_body):
             messages.error(request, 'suck on that!')
             return redirect('spam')
-
-
 
         try:
             form = FormGraduation(request.POST)
