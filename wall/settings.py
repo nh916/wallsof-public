@@ -1,21 +1,17 @@
 import os
-from pathlib import Path
-
-from decouple import Config, RepositoryEnv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.template.context_processors import media
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DOTENV_FILE = Path('..') / '.env'
-env_config = Config(RepositoryEnv(DOTENV_FILE))
-
-SECRET_KEY = env_config.get("SECRET_KEY")
-DEBUG = env_config.get("DEBUG", cast=bool)
-
-PRODUCTION_MODE = env_config.get("PRODUCTION_MODE", cast=bool)
+SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
+DEBUG = True
+PRODUCTION_MODE = False
 
 if not PRODUCTION_MODE:
     ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['thewallsof.com']
 else:
     ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
 
@@ -66,29 +62,40 @@ WSGI_APPLICATION = 'wall.wsgi.application'
 postgresql_database = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env_config.get("PSQL_NAME"),
-        'USER': env_config.get("PSQL_USER"),
-        'PASSWORD': env_config.get("PSQL_PASSWORD"),
-        'HOST': env_config.get("PSQL_HOST"),
-        'PORT': env_config.get("PSQL_PORT"),
+        'NAME': 'my_db',
+        'USER': 'postgres',
+        'PASSWORD': '@CPaxAugusta24',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
 #    sqlite database
-sqlite_database = {
+# sqlite_database = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# pgsql on docker
+container_postgresql_database = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
 my_local_mysqlite_database = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env_config.get("MYSQL_NAME"),
-        'USER': env_config.get("MYSQL_USER"),
-        'HOST': env_config.get("MYSQL_HOST"),
-        # 'PORT': '3306',
+        'NAME': 'thewallsof',
+        'USER': 'root',
+        'HOST': '127.0.0.1',
 
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -99,10 +106,10 @@ my_local_mysqlite_database = {
 online_database = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env_config.get("PYTHON_ANYWHERE_MYSQL_NAME"),
-        'USER': env_config.get("PYTHON_ANYWHERE_MYSQL_USER"),
-        'PASSWORD': env_config.get("PYTHON_ANYWHERE_MYSQL_PASSWORD"),
-        'HOST': env_config.get("PYTHON_ANYWHERE_MYSQL_HOST"),
+        'NAME': 'AugustusCaesar$thewallsof',
+        'USER': 'AugustusCaesar',
+        'PASSWORD': 'Lbj23Kb24',
+        'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
@@ -113,13 +120,8 @@ online_database = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
-if not PRODUCTION_MODE:
-    DATABASES = my_local_mysqlite_database
-else:
-    DATABASES = online_database
+DATABASES = container_postgresql_database
 
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -172,3 +174,14 @@ static_file = os.path.join(BASE_DIR, "templates/static")
 STATICFILES_DIRS = [
     static_file
 ]
+
+from pathlib import Path
+
+PARENT_BASE_DIR = Path(BASE_DIR).parent
+
+MEDIA_URL = "/media/"
+
+if PRODUCTION_MODE is False:
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+else:
+    MEDIA_ROOT = os.path.join(PARENT_BASE_DIR, "media")

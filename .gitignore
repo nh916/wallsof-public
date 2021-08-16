@@ -7,4 +7,8 @@ venv/
 .idea
 node_modules
 db-backup.sql
+.db_data/
+.sqlite_db
+data/
+
 
