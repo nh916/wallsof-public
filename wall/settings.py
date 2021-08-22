@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -9,11 +10,14 @@ SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 DEBUG = True
 PRODUCTION_MODE = False
 
-if not PRODUCTION_MODE:
-    ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['thewallsof.com']
-else:
-    ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
+# if not PRODUCTION_MODE:
+#     ALLOWED_HOSTS = []
+# # ALLOWED_HOSTS = ['thewallsof.com']
+# else:
+#     ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
+
+ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -42,8 +46,7 @@ ROOT_URLCONF = 'wall.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,7 +123,16 @@ online_database = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
-DATABASES = container_postgresql_database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '12345678',
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -175,7 +187,6 @@ STATICFILES_DIRS = [
     static_file
 ]
 
-from pathlib import Path
 
 PARENT_BASE_DIR = Path(BASE_DIR).parent
 
