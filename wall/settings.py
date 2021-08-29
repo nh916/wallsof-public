@@ -1,3 +1,4 @@
+from decouple import config
 import os
 from pathlib import Path
 
@@ -6,7 +7,6 @@ from django.template.context_processors import media
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-from decouple import config
 
 # DOTENV_FILE = Path('.') / '.env'
 # env_config = Config(RepositoryEnv(DOTENV_FILE))
@@ -66,7 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wall.wsgi.application'
 
-
 #    sqlite database
 # sqlite_database = {
 #     'default': {
@@ -100,7 +99,6 @@ my_local_mysqlite_database = {
     }
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -115,7 +113,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -20,7 +20,7 @@ services:
     build: .
     # command: ENTERYPOINT
     volumes:
-      - static_volume:/app/static:ro
+      - static_volume:/app/static
 
     depends_on:
       - postgresql
@@ -29,7 +29,7 @@ services:
     container_name: nginx
     build: ./nginx/.
     volumes:
-      - static_volume:/app/static:ro
+      - static_volume:/app/static
     ports:
       - "80:80"
       - "443:443"
