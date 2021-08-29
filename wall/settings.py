@@ -1,10 +1,17 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.template.context_processors import media
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+from decouple import config
+
+# DOTENV_FILE = Path('.') / '.env'
+# env_config = Config(RepositoryEnv(DOTENV_FILE))
+
+print(config('SECRET_KEY'))
 
 SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
 DEBUG = True
@@ -17,7 +24,6 @@ PRODUCTION_MODE = False
 #     ALLOWED_HOSTS = ['thewallsof.com', 'www.thewallsof.com', 'AugustusCaesar.pythonanywhere.com']
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -122,18 +128,20 @@ online_database = {
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# docker database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': '12345678',
+#         'HOST': 'postgresql',
+#         'PORT': '5432',
+#     }
+# }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '12345678',
-        'HOST': 'postgresql',
-        'PORT': '5432',
-    }
-}
 
+DATABASES = my_local_mysqlite_database
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -186,7 +194,6 @@ static_file = os.path.join(BASE_DIR, "templates/static")
 STATICFILES_DIRS = [
     static_file
 ]
-
 
 PARENT_BASE_DIR = Path(BASE_DIR).parent
 

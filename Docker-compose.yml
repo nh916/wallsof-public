@@ -2,8 +2,13 @@ version: "3.7"
 
 services:
   postgresql:
+    container_name: postgresql
+
     image: postgres:13.4-buster
     restart: always
+
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
 
     environment:
       - POSTGRES_DB=postgres
@@ -13,9 +18,10 @@ services:
   django:
     container_name: django
     build: .
-    # command: python manage.py runserver 0.0.0.0:8000
+    # command: ENTERYPOINT
     volumes:
-      - static_volume:/app/static
+      - static_volume:/app/static:ro
+
     depends_on:
       - postgresql
 
@@ -23,7 +29,7 @@ services:
     container_name: nginx
     build: ./nginx/.
     volumes:
-      - static_volume:/app/static
+      - static_volume:/app/static:ro
     ports:
       - "80:80"
       - "443:443"
@@ -32,3 +38,4 @@ services:
 
 volumes:
   static_volume:
+  postgresql_data:
