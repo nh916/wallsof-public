@@ -11,9 +11,8 @@ from decouple import config
 # DOTENV_FILE = Path('.') / '.env'
 # env_config = Config(RepositoryEnv(DOTENV_FILE))
 
-print(config('SECRET_KEY'))
 
-SECRET_KEY = '2%aqt6vb@-9=75+mi9x901+vs-qas1%kd6f_z_v=vpz)ta-d+='
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 PRODUCTION_MODE = False
 
@@ -67,17 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wall.wsgi.application'
 
-#     psql Database
-postgresql_database = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_db',
-        'USER': 'postgres',
-        'PASSWORD': '@CPaxAugusta24',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 #    sqlite database
 # sqlite_database = {
@@ -93,8 +81,8 @@ container_postgresql_database = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'db',
+        'PASSWORD': '12345678',
+        'HOST': 'postgresql',
         'PORT': 5432,
     }
 }
@@ -112,36 +100,22 @@ my_local_mysqlite_database = {
     }
 }
 
-online_database = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'AugustusCaesar$thewallsof',
-        'USER': 'AugustusCaesar',
-        'PASSWORD': 'Lbj23Kb24',
-        'HOST': 'AugustusCaesar.mysql.pythonanywhere-services.com',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # docker database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': '12345678',
-#         'HOST': 'postgresql',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '12345678',
+        'HOST': 'postgresql',
+        'PORT': '5432',
+    }
+}
 
-
-DATABASES = my_local_mysqlite_database
 
 AUTH_PASSWORD_VALIDATORS = [
     {
