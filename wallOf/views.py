@@ -16,10 +16,6 @@ def redirect_back(request, redirect_here):
     return redirect(redirect_here)
 
 
-def display_menu(request):
-    return render(request, 'wallOf/menu.html')
-
-
 def frustrations(request):
     posts = Posts
 

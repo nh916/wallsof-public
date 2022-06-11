@@ -99,20 +99,19 @@ my_local_mysqlite_database = {
     }
 }
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 # docker database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '12345678',
-        'HOST': 'postgresql',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': '12345678',
+#         'HOST': 'postgresql',
+#         'PORT': '5432',
+#     }
+# }
+
+DATABASES = sqlite_database
 
 AUTH_PASSWORD_VALIDATORS = [
     {
