@@ -10,5 +10,6 @@ db-backup.sql
 .db_data/
 .sqlite_db
 data/
+wallOf/spam_words_list.py
 
 

@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 
 from wallOf.forms import *
 from wallOf.models import *
+from wallOf import spam_words_list
 
 
 def redirect_back(request, redirect_here):
@@ -294,8 +295,7 @@ def spam_view(request):
     if request.method == 'POST' and not request.is_ajax():
 
         # for spammers
-        spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
-                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
+        spam_words = spam_words_list.spam_words
 
         spam_title = request.POST.get('title')
         spam_body = request.POST.get('spam')
@@ -368,8 +368,7 @@ def graduation_view(request):
     if request.method == 'POST' and not request.is_ajax():
 
         # for spammers
-        spam_words = ['adult', 'date', 'sex', 'sext', 'dick', 'cock', 'pussy', 'vagina', 'porn', 'girl', 'girls',
-                      'fuck', 'fucked', 'fucking' 'couple', 'wоmen', 'woman', 'cialis', 'viagra', 'http', 'https']
+        spam_words = spam_words_list.spam_words
 
         spam_title = request.POST.get('title')
         spam_body = request.POST.get('memory')
