@@ -1,4 +1,0 @@
-how to update django server
-
-[18:35:25] +FunkyBob git pull ; git clean -fdx ; ./manage.py migrate ; touch {whatever file triggers your WSGI app server to restart}
-[18:35:45] +FunkyBob oh and a manage.py collectstatic

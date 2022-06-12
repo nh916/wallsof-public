@@ -100,18 +100,9 @@ my_local_mysqlite_database = {
 }
 
 # docker database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': '12345678',
-#         'HOST': 'postgresql',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = container_postgresql_database
 
-DATABASES = sqlite_database
+# DATABASES = sqlite_database
 
 AUTH_PASSWORD_VALIDATORS = [
     {
