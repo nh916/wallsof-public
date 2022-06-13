@@ -4,7 +4,7 @@ services:
   postgresql:
     container_name: postgresql
 
-    image: postgres:13.4-buster
+    image: postgres:14.3-bullseye
     restart: always
 
     volumes:

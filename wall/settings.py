@@ -99,10 +99,7 @@ my_local_mysqlite_database = {
     }
 }
 
-# docker database
-DATABASES = container_postgresql_database
-
-# DATABASES = sqlite_database
+DATABASES = sqlite_database
 
 AUTH_PASSWORD_VALIDATORS = [
     {
